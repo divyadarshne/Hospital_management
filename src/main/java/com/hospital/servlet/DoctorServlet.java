@@ -1,8 +1,10 @@
 package com.hospital.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hospital.model.Appointment;
-import com.hospital.service.AppointmentService;
+import com.hospital.model.Doctor;
+
+import com.hospital.service.DoctorService;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-@WebServlet("/addAppointment")
-public class AppointmentServlet  extends HttpServlet{
-
-    private AppointmentService appointmentService = new AppointmentService();
-    ObjectMapper mapper = new ObjectMapper();
+@WebServlet("/doctors")
+public class DoctorServlet extends HttpServlet {
+    private DoctorService doctorService = new DoctorService();
+    private ObjectMapper mapper = new ObjectMapper();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        try {
+        try{
 
             BufferedReader reader = req.getReader();
             StringBuilder jsonBuilder = new StringBuilder();
@@ -31,13 +32,13 @@ public class AppointmentServlet  extends HttpServlet{
                 jsonBuilder.append(line);
             }
 
-            String json1 =jsonBuilder.toString();
-            Appointment appointment = mapper.readValue(json1, Appointment.class);
+            String json = jsonBuilder.toString();
 
-            appointmentService.addAppointment(appointment);
+            Doctor doc = mapper.readValue(json, Doctor.class);
+            doctorService.addDoctor(doc);
 
             resp.setStatus(HttpServletResponse.SC_CREATED);
-            resp.getWriter().write("Appointment added successfully");
+            resp.getWriter().write("Doctor added successfully");
 
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -49,4 +50,3 @@ public class AppointmentServlet  extends HttpServlet{
         resp.setStatus(200);
     }
 }
-

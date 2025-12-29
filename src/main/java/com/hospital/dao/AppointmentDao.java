@@ -18,7 +18,7 @@ public class AppointmentDao {
         ps.setDate(3, new java.sql.Date(
                 appointment.getNextAppointmentDate().getTime()));
         ps.setInt(4, appointment.getTotalAppointment());
-        ps.setInt(5, appointment.getFinishedAppoinment());
+        ps.setInt(5, appointment.getFinishedAppointment());
 
         ps.executeUpdate();
 

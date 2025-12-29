@@ -7,19 +7,22 @@ import com.hospital.service.PatientService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-@WebServlet("/patients/*")
-public class PatientServlet {
-private PatientService patientService = new PatientService();
-private ObjectMapper mapper = new ObjectMapper();
+@WebServlet("/patients")
+public class PatientServlet extends HttpServlet {
 
-    protected void service(HttpServletRequest req, HttpServletResponse resp)
+   private PatientService patientService = new PatientService();
+    private ObjectMapper mapper = new ObjectMapper();
+
+  @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String path = req.getServletPath();
+        try{
 
         BufferedReader reader = req.getReader();
         StringBuilder jsonBuilder = new StringBuilder();
@@ -32,7 +35,6 @@ private ObjectMapper mapper = new ObjectMapper();
             String json = jsonBuilder.toString();
 
         Patient patient = mapper.readValue(json, Patient.class);
-try{
         patientService.addPatient(patient);
 
         resp.setStatus(HttpServletResponse.SC_CREATED);
@@ -42,6 +44,9 @@ try{
         resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         resp.getWriter().write(e.getMessage());
     }
-
-        }
+    }
+    @Override
+    protected  void doGet (HttpServletRequest req , HttpServletResponse resp) throws ServletException{
+        resp.setStatus(200);
+    }
 }

@@ -5,11 +5,6 @@ public class Doctor {
     private String doctorName;
     private String specialization;
 
-    public Doctor(int doctorId, String doctorName, String specialization) {
-        this.doctorId = doctorId;
-        this.doctorName = doctorName;
-        this.specialization = specialization;
-    }
 
     public int getDoctorId() {
         return doctorId;

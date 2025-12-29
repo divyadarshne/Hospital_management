@@ -16,10 +16,12 @@ public class PatientDao {
         PreparedStatement ps = conn.prepareStatement(insertPatient);
         ps.setString(1, patient.getPatientName());
         ps.setString(2, patient.getGender());
-        ps.setDate(3, new Date(patient.getDob())); // for sql date method the argument date type shoudld be long
+        ps.setDate(3, patient.getDob());
         ps.setString(4, patient.getBloodGroup());
         ps.setString(5, patient.getCity());
         ps.setString(6, patient.getDiagnosis());
+        ps.setLong(7, patient.getPhoneNumber());
+
 
         ps.executeUpdate();
 

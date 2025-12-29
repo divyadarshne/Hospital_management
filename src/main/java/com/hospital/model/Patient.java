@@ -1,13 +1,17 @@
 package com.hospital.model;
 
+import java.sql.Date;
+
 public class Patient {
     private int patientId ;
     private String patientName;
     private String gender;
-    private long dob;   // for sql date method the argument date type shoudld be long
+    private Date dob;
     private String bloodGroup;
     private String city;
     private String diagnosis;
+    private long phoneNumber;
+
 
     public long getPhoneNumber() {
         return phoneNumber;
@@ -17,7 +21,7 @@ public class Patient {
         this.phoneNumber = phoneNumber;
     }
 
-    private long phoneNumber;
+
 
     public int getPatientId() {
         return patientId;
@@ -43,11 +47,11 @@ public class Patient {
         this.gender = gender;
     }
 
-    public long getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(long dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 

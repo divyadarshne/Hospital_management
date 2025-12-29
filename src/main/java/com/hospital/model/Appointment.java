@@ -8,14 +8,16 @@ public class Appointment {
     private int doctorId;
     private Date nextAppointmentDate;
     private int totalAppointment;
-    private int finishedAppoinment;
+    private int finishedAppointment;
 
 
     public int getAppointmentId() {
+
         return appointmentId;
     }
 
     public void setAppointmentId(int appointmentId) {
+
         this.appointmentId = appointmentId;
     }
 
@@ -51,11 +53,11 @@ public class Appointment {
         this.totalAppointment = totalAppointment;
     }
 
-    public int getFinishedAppoinment() {
-        return finishedAppoinment;
+    public int getFinishedAppointment() {
+        return finishedAppointment;
     }
 
-    public void setFinishedAppoinment(int finishedAppoinment) {
-        this.finishedAppoinment = finishedAppoinment;
+    public void setFinishedAppointment(int finishedAppointment) {
+        this.finishedAppointment = finishedAppointment;
     }
 }

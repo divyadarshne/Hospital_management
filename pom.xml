@@ -21,7 +21,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version> 4.13.1 </version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -41,6 +41,16 @@
       <artifactId>jackson-databind</artifactId>
       <version>2.9.6</version>
     </dependency>
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version> 1.5.22 </version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>2.0.9</version>
+      </dependency>
   </dependencies>
 
   <build>
@@ -48,7 +58,6 @@
 
     <plugins>
 
-      <!-- Java Compiler -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -59,7 +68,6 @@
         </configuration>
       </plugin>
 
-      <!-- WAR packaging -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
