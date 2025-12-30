@@ -1,0 +1,26 @@
+package com.hospital.servlet;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hospital.service.AppointmentService;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/getappointmentsbydoctor")
+public  class GetAppointmentsByDoctorServlet extends HttpServlet {
+
+    private final AppointmentService service = new AppointmentService();
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int doctorId = Integer.parseInt(req.getParameter("doctorId"));
+
+        resp.setContentType("application/json");
+        new ObjectMapper().writeValue(
+                resp.getWriter(),
+                service.getAppointmentsByDoctor(doctorId)
+        );
+    }
+}

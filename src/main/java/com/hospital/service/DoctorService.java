@@ -11,4 +11,9 @@ public class DoctorService {
     public void addDoctor(Doctor doctor) throws Exception {
         doctorDao.addDoctor(doctor);
     }
+
+    public Doctor getDoctorById(int id) {
+        return doctorDao.getDoctorById(id);
+    }
+
 }

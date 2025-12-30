@@ -6,7 +6,7 @@ public class Appointment {
     private int appointmentId;
     private int patientId;
     private int doctorId;
-    private Date nextAppointmentDate;
+    private Date appointmentDate;
     private int totalAppointment;
     private int finishedAppointment;
 
@@ -37,12 +37,12 @@ public class Appointment {
         this.doctorId = doctorId;
     }
 
-    public Date getNextAppointmentDate() {
-        return nextAppointmentDate;
+    public Date getAppointmentDate() {
+        return appointmentDate;
     }
 
-    public void setNextAppointmentDate(Date nextAppointmentDate) {
-        this.nextAppointmentDate = nextAppointmentDate;
+    public void setAppointmentDate(Date appointmentDate) {
+        this.appointmentDate = appointmentDate;
     }
 
     public int getTotalAppointment() {

@@ -5,7 +5,6 @@ import com.hospital.model.Doctor;
 
 import com.hospital.service.DoctorService;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,4 +48,6 @@ public class DoctorServlet extends HttpServlet {
     protected  void doGet (HttpServletRequest req , HttpServletResponse resp) throws ServletException{
         resp.setStatus(200);
     }
+
 }
+

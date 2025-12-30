@@ -1,0 +1,26 @@
+package com.hospital.servlet;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hospital.model.Patient;
+import com.hospital.service.PatientService;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet("/getallpatients")
+public class GetAllPatientServlet extends HttpServlet {
+
+    private final PatientService service = new PatientService();
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        List<Patient> patients = service.getAllPatients();
+
+        resp.setContentType("application/json");
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValue(resp.getWriter(), patients);
+    }
+}

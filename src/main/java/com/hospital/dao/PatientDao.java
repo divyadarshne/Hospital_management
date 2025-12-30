@@ -1,5 +1,7 @@
 package com.hospital.dao;
 
+import com.hospital.model.Appointment;
+import com.hospital.model.Doctor;
 import com.hospital.model.Patient;
 import com.hospital.util.DBUtil;
 
@@ -7,12 +9,14 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PatientDao {
     public void addPatient(Patient patient) throws Exception {
 
-            String insertPatient = "Insert into patient (patientName, gender, dob, bloodGroup, city, diagnosis, phoneNumber)" +
+            String insertPatient = "Insert into patient (patient_name, gender, dob, blood_group, city, diagnosis, phone_number)" +
                     " values (?,?,?,?,?,?,?);";
             Connection conn = DBUtil.getConnection();
             PreparedStatement ps = conn.prepareStatement(insertPatient);
@@ -30,26 +34,64 @@ public class PatientDao {
             conn.close();
 
     }
-//    public void getPatientDetails(int patientId) throws Exception{
-//        String getPatient = "Select * from patient where patientId = ? ";
-//
-//       Connection con = DBUtil.getConnection();
-//       PreparedStatement ps = con.prepareStatement(getPatient);
-//
-//        ps.setInt(1, patientId);
-//        ResultSet rs1=ps.executeQuery();
-//        Patient patient1 = new Patient();
-//
-//        if(rs1.next()){
-//            patient1.setPatientId(rs1.getInt("patientId"));
-//            patient1.setPatientName(rs1.getString("patientName"));
-//            patient1.setGender(rs1.getString("gender"));
-//            patient1.setDob(rs1.getDate(""));
-//
-//        }
-//
-//
-//        }
+    public List<Patient> getAllPatients() {
+        List<Patient> patients = new ArrayList<>();
+
+        String sql = "SELECT * FROM patient";
+
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Patient p = new Patient();
+                p.setPatientId(rs.getInt("patient_id"));
+                p.setPatientName(rs.getString("patient_name"));
+                p.setGender(rs.getString("gender"));
+                p.setDob(rs.getDate("dob"));
+                p.setBloodGroup(rs.getString("blood_group"));
+                p.setCity(rs.getString("city"));
+                p.setDiagnosis(rs.getString("diagnosis"));
+                p.setPhoneNumber(rs.getLong("phone_number"));
+
+                patients.add(p);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return patients;
+    }
+
+    public Patient getPatientById(int id) {
+        String selectsql = "SELECT * FROM patient WHERE patient_id = ?";
+        Patient patient=null;
+
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(selectsql)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                patient = new Patient();
+                patient.setPatientId(rs.getInt("patient_id"));
+                patient.setPatientName(rs.getString("patient_name"));
+                patient.setGender(rs.getString("gender"));
+                patient.setDob(rs.getDate("dob"));
+                patient.setBloodGroup(rs.getString("blood_group"));
+                patient.setCity(rs.getString("city"));
+                patient.setDiagnosis(rs.getString("diagnosis"));
+                patient.setPhoneNumber(rs.getLong("phone_number"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return patient;
+    }
+
+
 }
 
 
