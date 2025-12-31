@@ -17,7 +17,9 @@ import java.io.IOException;
 public class DoctorServlet extends HttpServlet {
     private DoctorService doctorService = new DoctorService();
     private ObjectMapper mapper = new ObjectMapper();
-   //Add Doctor
+    String responseType ="application/json";
+
+    //Add Doctor
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -49,7 +51,7 @@ public class DoctorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int id = Integer.parseInt(req.getParameter("id"));
 
-        resp.setContentType("application/json");
+        resp.setContentType(responseType);
         new ObjectMapper().writeValue(resp.getWriter(), doctorService.getDoctorById(id));
     }
 

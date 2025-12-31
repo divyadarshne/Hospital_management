@@ -18,8 +18,7 @@ public  class GetAppointmentsByDoctorServlet extends HttpServlet {
         int doctorId = Integer.parseInt(req.getParameter("doctorId"));
 
         resp.setContentType("application/json");
-        new ObjectMapper().writeValue(
-                resp.getWriter(),
+        new ObjectMapper().writeValue(resp.getWriter(),
                 service.getAppointmentsByDoctor(doctorId)
         );
     }

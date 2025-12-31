@@ -24,6 +24,7 @@ public class PatientServlet extends HttpServlet {
     private static final Logger patientServletLogs = LoggerFactory.getLogger(PatientServlet.class);
     private final PatientService patientService = new PatientService();
     private final ObjectMapper mapper = new ObjectMapper();
+    static final String responseType ="application/json";
 
     @Override                   //add patients
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)  throws  IOException {
@@ -58,9 +59,9 @@ public class PatientServlet extends HttpServlet {
             throws ServletException, IOException {
 
         Patient patient = mapper.readValue(req.getInputStream(), Patient.class);
-        Patient updated = patientService.updatePatient(patient);
+        patientService.updatePatient(patient);
 
-        resp.setContentType("application/json");
+        resp.setContentType(responseType);
         try{
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Patient updated successfully");
@@ -76,7 +77,7 @@ public class PatientServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int pId = Integer.parseInt(req.getParameter("patientid"));
 
-        resp.setContentType("application/json");
+        resp.setContentType(responseType);
         new ObjectMapper().writeValue(resp.getWriter(), patientService.getPatientById(pId));
     }
 }

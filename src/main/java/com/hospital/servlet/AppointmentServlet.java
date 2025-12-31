@@ -20,15 +20,18 @@ import java.io.IOException;
 public class AppointmentServlet  extends HttpServlet{
     private static final Logger appointmentLogs = LoggerFactory.getLogger(AppointmentServlet.class);
 
-    private  AppointmentService appointmentService = new AppointmentService();
-    ObjectMapper mapper = new ObjectMapper();
+    private AppointmentService appointmentService = new AppointmentService();
+    static final ObjectMapper mapper = new ObjectMapper();
+
+    static  final String responseType ="application/json";
 
     @Override    // add appointment
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        BufferedReader reader = null;
         try {
 
-            BufferedReader reader = req.getReader();
+            reader = req.getReader();
             StringBuilder jsonBuilder = new StringBuilder();
             String line;
 
@@ -36,7 +39,7 @@ public class AppointmentServlet  extends HttpServlet{
                 jsonBuilder.append(line);
             }
 
-            String json1 =jsonBuilder.toString();
+            String json1 = jsonBuilder.toString();
             Appointment appointment = mapper.readValue(json1, Appointment.class);
 
             appointmentService.addAppointment(appointment);
@@ -47,7 +50,9 @@ public class AppointmentServlet  extends HttpServlet{
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write(e.getMessage());
-            appointmentLogs.error(" Error on request ",e);
+            appointmentLogs.error(" Error on request ", e);
+        } finally {
+            reader.close();
         }
         appointmentLogs.info("Appointment is fixed");
     }
@@ -59,7 +64,7 @@ public class AppointmentServlet  extends HttpServlet{
 
             appointmentService.updateAppointment(appointment);
 
-            resp.setContentType("application/json");
+            resp.setContentType(responseType);
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Successfully updated the environment");
         } catch (Exception e) {
@@ -69,11 +74,7 @@ public class AppointmentServlet  extends HttpServlet{
 
         }
     }
-          //getAllAppointments
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("application/json");
-        mapper.writeValue(resp.getWriter(), appointmentService.getAllAppointments());
-    }
+
           //DeleteAppointmentbyId
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
@@ -82,7 +83,7 @@ public class AppointmentServlet  extends HttpServlet{
             int appointmentId = Integer.parseInt(req.getParameter("appointmentId"));
             appointmentService.deleteAppointment(appointmentId);
 
-            resp.setContentType("application/json");
+            resp.setContentType(responseType);
 
             resp.getWriter().write("Appointment deleted successfully");
         } catch(Exception e) {
