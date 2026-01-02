@@ -15,7 +15,7 @@ import java.io.IOException;
 
 @WebServlet("/doctors")
 public class DoctorServlet extends HttpServlet {
-    private DoctorService doctorService = new DoctorService();
+    private static DoctorService doctorService = new DoctorService();
     private final ObjectMapper mapper = new ObjectMapper();
     String responseType ="application/json";
     private static final long serialVersionUID  = 2;

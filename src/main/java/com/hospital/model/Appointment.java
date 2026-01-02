@@ -3,12 +3,13 @@ package com.hospital.model;
 import java.util.Date;
 
 public class Appointment {
-    private int appointmentId;
+    private int appointmentId ;
     private int patientId;
     private int doctorId;
     private Date appointmentDate;
     private int totalAppointment;
     private int finishedAppointment;
+
 
 
     public int getAppointmentId() {

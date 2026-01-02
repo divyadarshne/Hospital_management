@@ -953,3 +953,36 @@ java.sql.SQLException: Access denied for user 'root'@'localhost' (using password
 2026-01-02 17:15:52 INFO  com.hospital.service.PatientService - Fetching all patients
 2026-01-02 17:15:52 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
 2026-01-02 17:15:52 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:56:12 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:56:13 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:56:13 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:56:13 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:56:13 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:56:13 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:56:13 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:56:13 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:58:21 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:58:22 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:58:22 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:58:23 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:58:23 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:58:23 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:58:23 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:58:23 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 18:24:54 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 18:45:41 INFO  com.hospital.service.DoctorService - getting Doctor by stream
+2026-01-02 18:45:42 INFO  com.hospital.service.DoctorService - adding doctor
+2026-01-02 18:45:42 INFO  com.hospital.dao.DoctorDao - Doctor added successfully
+2026-01-02 18:45:42 INFO  com.hospital.service.DoctorService - adding doctor
+2026-01-02 18:45:42 INFO  com.hospital.dao.DoctorDao - Doctor added successfully
+2026-01-02 18:52:11 INFO  com.hospital.service.DoctorService - getting Doctor by stream
+2026-01-02 18:52:48 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 18:52:48 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 18:52:49 INFO  com.hospital.service.DoctorService - getting Doctor by stream
+2026-01-02 18:52:49 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 18:52:49 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 18:52:49 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 18:52:49 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 18:52:49 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 18:52:49 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 18:52:49 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully

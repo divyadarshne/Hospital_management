@@ -21,4 +21,13 @@ public class DoctorService {
         return doctorDao.getDoctorById(id);
     }
 
+    private DoctorDao dao;
+
+     public DoctorService() {       // creating constructor without arguments for other services
+        this.dao = new DoctorDao();
+    }
+    public DoctorService(DoctorDao dao) {   //for constructer called in tests
+        this.dao = dao;
+    }
+
 }

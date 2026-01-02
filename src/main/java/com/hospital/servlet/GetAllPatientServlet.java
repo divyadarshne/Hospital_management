@@ -17,7 +17,7 @@ public class GetAllPatientServlet extends HttpServlet {
 
     private final PatientService service = new PatientService();
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         List<Patient> patients = service.getAllPatients();
 
         resp.setContentType("application/json");
