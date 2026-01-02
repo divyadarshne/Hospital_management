@@ -1,9 +1,10 @@
 package com.hospital.dao;
 
-import com.hospital.model.Appointment;
-import com.hospital.model.Doctor;
 import com.hospital.model.Patient;
+
 import com.hospital.util.DBUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -13,25 +14,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class PatientDao {
+    private static final Logger patientDaoLogs = LoggerFactory.getLogger(PatientDao.class);
+
     public void addPatient(Patient patient) throws Exception {
 
-            String insertPatient = "Insert into patient (patient_name, gender, dob, blood_group, city, diagnosis, phone_number)" +
-                    " values (?,?,?,?,?,?,?);";
-            Connection conn = DBUtil.getConnection();
-            PreparedStatement ps = conn.prepareStatement(insertPatient);
-            ps.setString(1, patient.getPatientName());
-            ps.setString(2, patient.getGender());
-            ps.setDate(3, patient.getDob());
-            ps.setString(4, patient.getBloodGroup());
-            ps.setString(5, patient.getCity());
-            ps.setString(6, patient.getDiagnosis());
-            ps.setLong(7, patient.getPhoneNumber());
+        String insertPatient = "Insert into patient (patient_name, gender, dob, blood_group, city, diagnosis, phone_number)" +
+                " values (?,?,?,?,?,?,?);";
+        try{
+        Connection conn = DBUtil.getConnection();
+        PreparedStatement ps = conn.prepareStatement(insertPatient);
+        ps.setString(1, patient.getPatientName());
+        ps.setString(2, patient.getGender());
+        ps.setDate(3, patient.getDob());
+        ps.setString(4, patient.getBloodGroup());
+        ps.setString(5, patient.getCity());
+        ps.setString(6, patient.getDiagnosis());
+        ps.setLong(7, patient.getPhoneNumber());
 
-
-            ps.executeUpdate();
-            ps.close();
-            conn.close();
+        patientDaoLogs.info("Patient added successfully");
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+    }
+    catch (Exception e) {
+        patientDaoLogs.error("Error while adding patient", e);
+        throw e;
+    }
 
     }
     public List<Patient> getAllPatients() {
@@ -58,7 +68,7 @@ public class PatientDao {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            patientDaoLogs.error("Error while updating patient", e);
         }
         return patients;
     }
@@ -86,7 +96,7 @@ public class PatientDao {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            patientDaoLogs.error("Error while updating patient", e.getMessage());
         }
         return patient;
     }
@@ -108,7 +118,7 @@ public class PatientDao {
 
             ps.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            patientDaoLogs.error("Error while updating patient", e);
         }
         return patient;
     }

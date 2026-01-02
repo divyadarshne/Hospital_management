@@ -28,6 +28,7 @@ public class AppointmentServlet  extends HttpServlet{
     @Override    // add appointment
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
         BufferedReader reader = null;
         try {
 

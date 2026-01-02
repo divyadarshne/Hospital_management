@@ -22,12 +22,20 @@ import java.util.List;
 @WebServlet("/patients")
 public class PatientServlet extends HttpServlet {
     private static final Logger patientServletLogs = LoggerFactory.getLogger(PatientServlet.class);
-    private final PatientService patientService = new PatientService();
+    private PatientService patientService = new PatientService();
+
+    public PatientServlet() {   //default constructor for nrml build
+        this.patientService = new PatientService();
+    }
+
+    public PatientServlet(PatientService patientService) {   //for testing we need argument constructor
+        this.patientService = patientService;
+    }
     private final ObjectMapper mapper = new ObjectMapper();
     static final String responseType ="application/json";
 
     @Override                   //add patients
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)  throws  IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)  throws  IOException {
         try {
 
             BufferedReader reader = req.getReader();
@@ -45,6 +53,8 @@ public class PatientServlet extends HttpServlet {
 
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Patient added successfully");
+            patientServletLogs.info("Patient added successfully");
+
 
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -79,5 +89,7 @@ public class PatientServlet extends HttpServlet {
 
         resp.setContentType(responseType);
         new ObjectMapper().writeValue(resp.getWriter(), patientService.getPatientById(pId));
+        patientServletLogs.info("Fetched patient {}", pId);
+
     }
 }
