@@ -1,32 +1,49 @@
 package com.hospital.dao;
 
+import com.hospital.exceptions.DataAccessException;
 import com.hospital.model.Appointment;
 import com.hospital.util.DBUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentDao {
-    public static void addAppointment(Appointment appointment) throws Exception {
+    private static final Logger APPOINTMENTDAOLOGGER = LoggerFactory.getLogger(AppointmentDao.class);
+
+    static final int PATIENTS_ID =1;
+    static final int DOCTORS_ID =2;
+    static final int APPOINTMENT_DATE =3;
+    static final int T_APPOINTMENT =4;
+    static final int F_APPOINTMENT =5;
+    static final int APPOINTMENT_ID =6;
+
+
+    public void addAppointment(Appointment appointment) throws SQLException {
+
+
         String insertappointment = "INSERT INTO appointment (patient_id, doctor_id, appointment_date, total_appointment, finished_appointment) " +
                 "VALUES (?, ?, ?, ?, ?)";
-        Connection conn = DBUtil.getConnection();
-        PreparedStatement ps = conn.prepareStatement(insertappointment);
 
-        ps.setInt(1, appointment.getPatientId());
-        ps.setInt(2, appointment.getDoctorId());
-        ps.setDate(3, new java.sql.Date(
+        try( Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(insertappointment)){
+        ps.setInt(PATIENTS_ID , appointment.getPatientId());
+        ps.setInt(DOCTORS_ID, appointment.getDoctorId());
+        ps.setDate(APPOINTMENT_DATE, new java.sql.Date(
                 appointment.getAppointmentDate().getTime()));
-        ps.setInt(4, appointment.getTotalAppointment());
-        ps.setInt(5, appointment.getFinishedAppointment());
+        ps.setInt(T_APPOINTMENT, appointment.getTotalAppointment());
+        ps.setInt(F_APPOINTMENT, appointment.getFinishedAppointment());
 
         ps.executeUpdate();
 
-        ps.close();
-        conn.close();
+        } catch (Exception e) {
+            throw new DataAccessException("SQl Error Occured: ",e);
+        }
     }
 
     public List<Appointment> getAllAppointments() {
@@ -48,7 +65,7 @@ public class AppointmentDao {
                 list.add(a);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            APPOINTMENTDAOLOGGER.error("Error While getting all appointments", e);
         }
         return list;
     }
@@ -75,7 +92,8 @@ public class AppointmentDao {
                 list.add(a);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            APPOINTMENTDAOLOGGER.error("Error While getting all appointments By Doctor Id",e);
+
         }
         return list;
     }
@@ -86,17 +104,17 @@ public class AppointmentDao {
         try (Connection con = DBUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, appointment.getPatientId());
-            ps.setInt(2, appointment.getDoctorId());
-            ps.setDate(3, new java.sql.Date(
+            ps.setInt(PATIENTS_ID, appointment.getPatientId());
+            ps.setInt(DOCTORS_ID, appointment.getDoctorId());
+            ps.setDate(APPOINTMENT_DATE, new java.sql.Date(
                     appointment.getAppointmentDate().getTime()));
-            ps.setInt(4, appointment.getTotalAppointment());
-            ps.setInt(5, appointment.getFinishedAppointment());
-            ps.setInt(6, appointment.getAppointmentId());
+            ps.setInt(T_APPOINTMENT, appointment.getTotalAppointment());
+            ps.setInt(F_APPOINTMENT, appointment.getFinishedAppointment());
+            ps.setInt(APPOINTMENT_ID, appointment.getAppointmentId());
 
             ps.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            APPOINTMENTDAOLOGGER.error("Error While updating appointments By Appointment Id",e);
         }
         return appointment;
     }
@@ -111,7 +129,8 @@ public class AppointmentDao {
             ps.executeUpdate();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            APPOINTMENTDAOLOGGER.error("Error While Deleting appointments By Appointment Id",e);
+
         }
 
     }

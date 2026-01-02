@@ -528,3 +528,428 @@ java.sql.SQLException: Access denied for user 'root'@'localhost' (using password
 2026-01-02 06:26:07 INFO  com.hospital.service.PatientService - Fetching all patients
 2026-01-02 06:26:07 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
 2026-01-02 06:26:07 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 09:34:06 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 09:34:06 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 09:34:06 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 09:34:06 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 09:34:06 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 09:34:36 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 09:34:36 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 09:34:36 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 09:34:36 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 09:34:36 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 09:58:22 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 09:58:22 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 09:58:22 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 09:58:22 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 09:58:22 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 09:58:38 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 09:58:38 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 09:58:38 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 09:58:38 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 09:58:38 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 10:02:21 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 10:02:21 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 10:02:21 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 10:02:21 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 10:02:21 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 10:41:32 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:41:32 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 10:41:33 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:41:33 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 10:41:33 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 10:41:33 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 10:41:33 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 10:41:33 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 10:42:18 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:42:19 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 10:42:20 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:42:20 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 10:42:20 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 10:42:20 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 10:42:20 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 10:42:20 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 10:42:39 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:42:39 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 10:42:40 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:42:40 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 10:42:40 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 10:42:40 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 10:42:40 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 10:42:40 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 10:50:06 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:50:07 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 10:50:07 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:50:08 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 10:50:08 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 10:50:08 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 10:50:08 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 10:50:08 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 10:50:17 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:50:17 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 10:50:18 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 10:50:18 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 10:50:18 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 10:50:18 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 10:50:18 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 10:50:18 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:01:44 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:01:45 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:01:45 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:01:46 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:01:46 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:01:46 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:01:46 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:01:46 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:03:30 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:03:31 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:03:31 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:03:31 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:03:31 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:03:31 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:03:31 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:03:31 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:04:57 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:04:58 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:04:58 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:04:58 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:04:58 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:04:58 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:04:58 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:04:58 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:07:37 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:07:38 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:07:38 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:07:38 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:07:38 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:07:38 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:07:38 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:07:38 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:17:56 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:17:56 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:17:57 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:17:57 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:17:57 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:17:57 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:17:57 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:17:57 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:21:43 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:21:44 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:21:45 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:21:45 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:21:45 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:21:45 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:21:45 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:21:45 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:24:41 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:24:41 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:24:42 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:24:42 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:24:42 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:24:42 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:24:42 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:24:42 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 11:27:53 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:27:54 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 11:27:55 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 11:27:55 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 11:27:55 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 11:27:55 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 11:27:55 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 11:27:55 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 12:46:54 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 12:46:55 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 12:46:55 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 12:46:55 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 12:46:55 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 12:46:55 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 12:46:55 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 12:46:55 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 13:31:50 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 13:31:51 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 13:31:52 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 13:31:52 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 13:31:52 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 13:31:52 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 13:31:52 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 13:31:52 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 14:42:39 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:42:40 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 14:42:41 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:42:41 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 14:42:41 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 14:42:41 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 14:42:41 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 14:42:41 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 14:48:01 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:48:02 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 14:48:03 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:48:03 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 14:48:03 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 14:48:03 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 14:48:03 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 14:48:03 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 14:52:14 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:52:15 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 14:52:15 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:52:15 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 14:52:15 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 14:52:15 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 14:52:15 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 14:52:15 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 14:53:26 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:53:27 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 14:53:27 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:53:28 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 14:53:28 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 14:53:28 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 14:53:28 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 14:53:28 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 14:53:42 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:53:43 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 14:53:43 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 14:53:43 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 14:53:43 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 14:53:43 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 14:53:44 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 14:53:44 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:16:10 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:16:10 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:16:11 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:16:11 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:16:11 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:16:11 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:16:11 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:16:11 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:23:52 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:23:52 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:23:53 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:23:53 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:23:53 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:23:53 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:23:53 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:23:53 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:25:24 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:25:25 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:25:25 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:25:25 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:25:25 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:25:25 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:25:25 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:25:25 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:34:12 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:34:13 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:34:13 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:34:13 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:34:13 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:34:13 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:34:13 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:34:13 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:36:46 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:36:47 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:36:48 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:36:48 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:36:48 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:36:48 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:36:48 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:36:48 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:38:25 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:38:25 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:38:26 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:38:26 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:38:26 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:38:26 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:38:26 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:38:26 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:39:34 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:39:35 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:39:36 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:39:36 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:39:36 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:39:36 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:39:36 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:39:36 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:42:02 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:42:03 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:42:04 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:42:04 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:42:04 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:42:04 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:42:04 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:42:04 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:56:36 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:56:37 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:56:38 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:56:38 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:56:38 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:56:38 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:56:38 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:56:38 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 15:58:48 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:58:49 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 15:58:49 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 15:58:49 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 15:58:49 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 15:58:49 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 15:58:49 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 15:58:49 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:03:28 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:03:29 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:03:29 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:03:29 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:03:29 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:03:29 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:03:30 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:03:30 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:05:53 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:05:54 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:05:54 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:05:54 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:05:54 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:05:54 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:05:54 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:05:54 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:06:03 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:06:03 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:06:04 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:06:04 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:06:04 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:06:04 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:06:04 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:06:04 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:14:20 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:14:21 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:14:21 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:14:21 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:14:21 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:14:21 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:14:21 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:14:21 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:16:32 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:16:33 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:16:33 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:16:33 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:16:33 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:16:33 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:16:33 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:16:33 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:19:06 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:19:07 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:19:07 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:19:07 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:19:07 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:19:07 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:19:07 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:19:07 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:22:57 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:22:57 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:22:58 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:22:58 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:22:58 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:22:58 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:22:58 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:22:58 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:28:06 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:28:06 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:28:07 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:28:07 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:28:07 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:28:07 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:28:07 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:28:07 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:31:38 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:31:39 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:31:39 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:31:39 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:31:39 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:31:39 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:31:39 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:31:39 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:36:30 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:36:30 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:36:31 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:36:31 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:36:31 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:36:31 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:36:31 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:36:31 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:39:17 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:39:18 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:39:18 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:39:18 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:39:18 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:39:18 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:39:18 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:39:18 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:55:58 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:55:58 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:55:59 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:55:59 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:55:59 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:55:59 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:55:59 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:55:59 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:57:57 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:57:58 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:57:58 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:57:59 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:57:59 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:57:59 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:57:59 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:57:59 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 16:59:39 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:59:40 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 16:59:41 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 16:59:41 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 16:59:41 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 16:59:41 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 16:59:41 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 16:59:41 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:04:47 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:04:48 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:04:48 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:04:48 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:04:48 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:04:48 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:04:48 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:04:48 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:06:43 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:06:44 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:06:44 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:06:44 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:06:44 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:06:44 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:06:44 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:06:44 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:07:15 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:07:16 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:07:17 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:07:17 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:07:17 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:07:17 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:07:17 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:07:17 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:10:18 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:10:19 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:10:20 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:10:20 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:10:20 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:10:20 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:10:20 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:10:20 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:12:16 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:12:16 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:12:17 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:12:17 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:12:17 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:12:17 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:12:17 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:12:17 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully
+2026-01-02 17:15:50 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:15:51 INFO  com.hospital.service.AppointmentService - getting appointment by doctor id
+2026-01-02 17:15:52 INFO  com.hospital.service.AppointmentService - Getting all Appointments
+2026-01-02 17:15:52 INFO  com.hospital.service.PatientService - Fetching patient with id 1
+2026-01-02 17:15:52 INFO  com.hospital.service.PatientService - Adding patient
+2026-01-02 17:15:52 INFO  com.hospital.service.PatientService - Fetching all patients
+2026-01-02 17:15:52 INFO  com.hospital.servlet.PatientServlet - Patient added successfully
+2026-01-02 17:15:52 INFO  com.hospital.servlet.PatientServlet - PatientServlet runs successfully

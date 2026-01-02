@@ -3,12 +3,10 @@ package com.hospital.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.hospital.model.Patient;
-import com.hospital.service.DoctorService;
 import com.hospital.service.PatientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import javax.servlet.ServletException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.List;
+
 
 
 @WebServlet("/patients")
 public class PatientServlet extends HttpServlet {
-    private static final Logger patientServletLogs = LoggerFactory.getLogger(PatientServlet.class);
-    private PatientService patientService = new PatientService();
+    private static final Logger PATIENTSERVLETLOGS = LoggerFactory.getLogger(PatientServlet.class);
+    private final PatientService patientService;
+    private static final long serialVersionUID  = 6;
 
     public PatientServlet() {   //default constructor for nrml build
         this.patientService = new PatientService();
@@ -32,7 +31,7 @@ public class PatientServlet extends HttpServlet {
         this.patientService = patientService;
     }
     private final ObjectMapper mapper = new ObjectMapper();
-    static final String responseType ="application/json";
+    static final String RESPONSETYPE ="application/json";
 
     @Override                   //add patients
     public void doPost(HttpServletRequest req, HttpServletResponse resp)  throws  IOException {
@@ -53,15 +52,15 @@ public class PatientServlet extends HttpServlet {
 
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Patient added successfully");
-            patientServletLogs.info("Patient added successfully");
+            PATIENTSERVLETLOGS.info("Patient added successfully");
 
 
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write(e.getMessage());
-            patientServletLogs.error(e.getMessage());
+            PATIENTSERVLETLOGS.error(e.getMessage());
         }
-        patientServletLogs.info("PatientServlet runs successfully");
+        PATIENTSERVLETLOGS.info("PatientServlet runs successfully");
     }
 
     @Override                 //update patient
@@ -71,7 +70,7 @@ public class PatientServlet extends HttpServlet {
         Patient patient = mapper.readValue(req.getInputStream(), Patient.class);
         patientService.updatePatient(patient);
 
-        resp.setContentType(responseType);
+        resp.setContentType(RESPONSETYPE);
         try{
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Patient updated successfully");
@@ -79,17 +78,17 @@ public class PatientServlet extends HttpServlet {
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write(e.getMessage());
-            patientServletLogs.error(e.getMessage());
+            PATIENTSERVLETLOGS.error(e.getMessage());
         }
-        patientServletLogs.info("UpdatePatientServlet runs successfully");
+        PATIENTSERVLETLOGS.info("UpdatePatientServlet runs successfully");
     }
                      //get patient by ID
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int pId = Integer.parseInt(req.getParameter("patientid"));
 
-        resp.setContentType(responseType);
+        resp.setContentType(RESPONSETYPE);
         new ObjectMapper().writeValue(resp.getWriter(), patientService.getPatientById(pId));
-        patientServletLogs.info("Fetched patient {}", pId);
+        PATIENTSERVLETLOGS.info("Fetched patient {}", pId);
 
     }
 }

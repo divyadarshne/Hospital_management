@@ -31,12 +31,12 @@ class AppointmentServiceTest {
         assertNotNull(result, "The returned list should not be null");
     }
 
-//    @Test
-//    void testGetAppointmentsByDoctor() {
-//
-//        Mockito.when(daoMock.getAppointmentsByDoctor(2))
-//                .thenReturn(List.of(new Appointment()));
-//
-//        assertEquals(1, serviceMock.getAppointmentsByDoctor(2).size());
-//    }
+    @Test
+    void testGetAppointmentsByDoctor() {
+
+        Mockito.when(daoMock.getAppointmentsByDoctor(2))
+                .thenReturn(List.of(new Appointment()));
+
+        assertEquals(1, serviceMock.getAppointmentsByDoctor(2).size());
+    }
 }

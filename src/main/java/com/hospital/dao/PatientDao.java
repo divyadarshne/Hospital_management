@@ -1,45 +1,57 @@
 package com.hospital.dao;
 
+import com.hospital.exceptions.DataAccessException;
 import com.hospital.model.Patient;
 
 import com.hospital.util.DBUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
 public class PatientDao {
-    private static final Logger patientDaoLogs = LoggerFactory.getLogger(PatientDao.class);
+    private static final Logger PATIENTDAOLOGS = LoggerFactory.getLogger(PatientDao.class);
+
+    static final int PATIENT_NAME =1;
+    static final int GENDER =2;
+    static final int DOB =3;
+    static final int BLOOD_GROUP =4;
+    static final int CITY =5;
+    static final int DIOGNOSIS =6;
+    static final int PHONE_NUMBER =7;
+    static final int PATIENTS_ID =8;
+
 
     public void addPatient(Patient patient) throws Exception {
 
         String insertPatient = "Insert into patient (patient_name, gender, dob, blood_group, city, diagnosis, phone_number)" +
                 " values (?,?,?,?,?,?,?);";
-        try{
-        Connection conn = DBUtil.getConnection();
-        PreparedStatement ps = conn.prepareStatement(insertPatient);
-        ps.setString(1, patient.getPatientName());
-        ps.setString(2, patient.getGender());
-        ps.setDate(3, patient.getDob());
-        ps.setString(4, patient.getBloodGroup());
-        ps.setString(5, patient.getCity());
-        ps.setString(6, patient.getDiagnosis());
-        ps.setLong(7, patient.getPhoneNumber());
+        try(Connection conn = DBUtil.getConnection();
+            PreparedStatement ps = conn.prepareStatement(insertPatient)){
 
-        patientDaoLogs.info("Patient added successfully");
+        ps.setString(PATIENT_NAME, patient.getPatientName());
+        ps.setString(GENDER, patient.getGender());
+        ps.setDate(DOB, patient.getDob());
+        ps.setString(BLOOD_GROUP, patient.getBloodGroup());
+        ps.setString(CITY, patient.getCity());
+        ps.setString(DIOGNOSIS, patient.getDiagnosis());
+        ps.setLong(PHONE_NUMBER, patient.getPhoneNumber());
+
+        PATIENTDAOLOGS.info("Patient added successfully");
         ps.executeUpdate();
         ps.close();
         conn.close();
     }
-    catch (Exception e) {
-        patientDaoLogs.error("Error while adding patient", e);
+    catch (SQLException e) {
+        PATIENTDAOLOGS.error("Error while adding patient", e);
         throw e;
     }
 
@@ -68,7 +80,7 @@ public class PatientDao {
             }
 
         } catch (Exception e) {
-            patientDaoLogs.error("Error while updating patient", e);
+            PATIENTDAOLOGS.error("Error while Getting all patients", e);
         }
         return patients;
     }
@@ -96,7 +108,7 @@ public class PatientDao {
             }
 
         } catch (Exception e) {
-            patientDaoLogs.error("Error while updating patient", e.getMessage());
+            PATIENTDAOLOGS.error("Error while getting patient by id", e);
         }
         return patient;
     }
@@ -107,18 +119,18 @@ public class PatientDao {
         try (Connection con = DBUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, patient.getPatientName());
-            ps.setString(2, patient.getGender());
-            ps.setDate(3, patient.getDob());
-            ps.setString(4, patient.getBloodGroup());
-            ps.setString(5, patient.getCity());
-            ps.setString(6, patient.getDiagnosis());
-            ps.setLong(7, patient.getPhoneNumber());
-            ps.setInt(8, patient.getPatientId());
+            ps.setString(PATIENT_NAME, patient.getPatientName());
+            ps.setString(GENDER, patient.getGender());
+            ps.setDate(DOB, patient.getDob());
+            ps.setString(BLOOD_GROUP, patient.getBloodGroup());
+            ps.setString(CITY, patient.getCity());
+            ps.setString(DIOGNOSIS, patient.getDiagnosis());
+            ps.setLong(PHONE_NUMBER, patient.getPhoneNumber());
+            ps.setInt(PATIENTS_ID, patient.getPatientId());
 
             ps.executeUpdate();
         } catch (Exception e) {
-            patientDaoLogs.error("Error while updating patient", e);
+            PATIENTDAOLOGS.error("Error while updating patient", e);
         }
         return patient;
     }

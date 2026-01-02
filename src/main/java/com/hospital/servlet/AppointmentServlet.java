@@ -7,27 +7,29 @@ import com.hospital.service.AppointmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Serial;
 
 
 @WebServlet("/addAppointment")
 public class AppointmentServlet  extends HttpServlet{
     private static final Logger appointmentLogs = LoggerFactory.getLogger(AppointmentServlet.class);
 
-    private AppointmentService appointmentService = new AppointmentService();
+    private static final long serialVersionUID  = 1;
+
+    private final AppointmentService appointmentService = new AppointmentService();
     static final ObjectMapper mapper = new ObjectMapper();
 
-    static  final String responseType ="application/json";
+    static final String RESPONSETYPE ="application/json";
 
     @Override    // add appointment
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws  IOException {
 
         BufferedReader reader = null;
         try {
@@ -52,20 +54,18 @@ public class AppointmentServlet  extends HttpServlet{
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write(e.getMessage());
             appointmentLogs.error(" Error on request ", e);
-        } finally {
-            reader.close();
         }
         appointmentLogs.info("Appointment is fixed");
     }
        //update appointment
     protected void doPut(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         try{
             Appointment appointment = mapper.readValue(req.getInputStream(), Appointment.class);
 
             appointmentService.updateAppointment(appointment);
 
-            resp.setContentType(responseType);
+            resp.setContentType(RESPONSETYPE);
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Successfully updated the environment");
         } catch (Exception e) {
@@ -79,12 +79,12 @@ public class AppointmentServlet  extends HttpServlet{
           //DeleteAppointmentbyId
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         try {
             int appointmentId = Integer.parseInt(req.getParameter("appointmentId"));
             appointmentService.deleteAppointment(appointmentId);
 
-            resp.setContentType(responseType);
+            resp.setContentType(RESPONSETYPE);
 
             resp.getWriter().write("Appointment deleted successfully");
         } catch(Exception e) {

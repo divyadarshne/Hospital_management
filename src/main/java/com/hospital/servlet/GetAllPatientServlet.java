@@ -13,6 +13,7 @@ import java.util.List;
 
 @WebServlet("/getallpatients")
 public class GetAllPatientServlet extends HttpServlet {
+    private static final long serialVersionUID  = 5;
 
     private final PatientService service = new PatientService();
 

@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/getappointmentsbydoctor")
 public  class GetAppointmentsByDoctorServlet extends HttpServlet {
+    private static final long serialVersionUID  = 5;
 
     private final AppointmentService service = new AppointmentService();
 

@@ -1,7 +1,6 @@
 package com.hospital;
 import com.hospital.model.Appointment;
 import com.hospital.service.AppointmentService;
-import com.hospital.servlet.AppointmentServlet;
 import com.hospital.servlet.GetAllAppointmentServlet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 class GetAllAppointmentServletTest {

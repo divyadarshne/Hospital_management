@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hospital.model.Doctor;
 
 import com.hospital.service.DoctorService;
+import com.hospital.service.DoctorService;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +16,22 @@ import java.io.IOException;
 @WebServlet("/doctors")
 public class DoctorServlet extends HttpServlet {
     private DoctorService doctorService = new DoctorService();
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
     String responseType ="application/json";
+    private static final long serialVersionUID  = 2;
+
+    public DoctorServlet() {   //default constructor for nrml build
+        this.doctorService = new DoctorService();
+    }
+
+    public DoctorServlet(DoctorService doctorService) {   //for testing we need argument constructor
+        this.doctorService = doctorService;
+    }
 
     //Add Doctor
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws  IOException {
         try{
 
             BufferedReader reader = req.getReader();

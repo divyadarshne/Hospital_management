@@ -1,35 +1,46 @@
 package com.hospital.dao;
 
-import com.hospital.model.Appointment;
+import com.hospital.exceptions.DataAccessException;
 import com.hospital.model.Doctor;
-import com.hospital.model.Patient;
 import com.hospital.util.DBUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DoctorDao {
+    private static final Logger DOCTORDAOLOGGER = LoggerFactory.getLogger(DoctorDao.class);
+    private static final int PARAMINDEXONE = 1;
+    private static final int PARAMINDEXTWO = 2;
 
-    public void addDoctor(Doctor doctor) throws Exception {
+    public void addDoctor(Doctor doctor) throws SQLException {
         String insertPatient = "Insert into doctor (doctor_name, specialization)" +
                 " values (?,?);";
-        Connection conn = DBUtil.getConnection();
-        PreparedStatement ps = conn.prepareStatement(insertPatient);
-        ps.setString(1, doctor.getDoctorName());
-        ps.setString(2, doctor.getSpecialization());
-        ps.executeUpdate();
+        try (Connection conn = DBUtil.getConnection();
+             PreparedStatement ps = conn.prepareStatement(insertPatient)) {
 
-        ps.close();
-        conn.close();
+            ps.setString(PARAMINDEXONE, doctor.getDoctorName());
+            ps.setString(PARAMINDEXTWO, doctor.getSpecialization());
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            String message = "Exception raised while adding user: " + e.getMessage();
+            DOCTORDAOLOGGER.warn(message);
+        }
+
+        DOCTORDAOLOGGER.info("Doctor added successfully");
+
     }
 
     public Doctor getDoctorById(int id) {
-        String sql = "SELECT * FROM doctor WHERE doctor_id = ?";
-        Doctor doc=null;
+        String sqlget = "SELECT * FROM doctor WHERE doctor_id = ?";
+        Doctor doc = null;
 
         try (Connection con = DBUtil.getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+             PreparedStatement ps = con.prepareStatement(sqlget)) {
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -42,9 +53,10 @@ public class DoctorDao {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            String message = "Exception raised while authenticating user: " + e.getMessage();
+            DOCTORDAOLOGGER.warn(message);
         }
-        return doc;
-    }
+            return doc;
 
+    }
 }

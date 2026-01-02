@@ -11,6 +11,7 @@ import java.io.IOException;
 
 @WebServlet("/getallappointments")
 public class GetAllAppointmentServlet extends HttpServlet {
+    private static final long serialVersionUID  = 3;
 
     AppointmentService services = new AppointmentService();
     ObjectMapper mapper = new ObjectMapper();   // to map object into json

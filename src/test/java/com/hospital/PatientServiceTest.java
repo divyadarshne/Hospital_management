@@ -20,15 +20,12 @@ public class PatientServiceTest {
 
     @BeforeEach
     void setUp() {
-        // 1️⃣ Create a MOCK (fake) DAO — no DB connection
+
         patientDao = Mockito.mock(PatientDao.class);
 
-        // 2️⃣ Inject mock DAO into service
         service = new PatientService(patientDao);
     }
 
-
-    // 1️⃣ Validation test
     @Test
     void addPatient_shouldFail_whenNameIsNull() {
 
@@ -46,7 +43,6 @@ public class PatientServiceTest {
         assertEquals("Patient name is required", exception.getMessage());
     }
 
-    // 2️⃣ Delegation test
     @Test
     void addPatient_shouldCallDao_whenValidPatient() throws Exception {
 
@@ -58,7 +54,6 @@ public class PatientServiceTest {
         Mockito.verify(patientDao).addPatient(patient);
     }
 
-    // 3️⃣ getAllPatients delegation
     @Test
     void getAllPatients_shouldReturnListFromDao() {
 
@@ -71,7 +66,7 @@ public class PatientServiceTest {
         assertEquals(0, result.size());
     }
 
-    // 4️⃣ getPatientById delegation
+
     @Test
     void getPatientById_shouldReturnPatient() {
 

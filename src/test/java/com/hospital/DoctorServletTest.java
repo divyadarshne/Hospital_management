@@ -1,9 +1,10 @@
 package com.hospital;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hospital.model.Patient;
-import com.hospital.service.PatientService;
-import com.hospital.servlet.PatientServlet;
+import com.hospital.model.Doctor;
+import com.hospital.service.DoctorService;
+import com.hospital.service.DoctorService;
+import com.hospital.servlet.DoctorServlet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -15,29 +16,25 @@ import java.io.PrintWriter;
 import java.io.StringReader;
 import java.io.StringWriter;
 
-import static org.junit.jupiter.api.Assertions.*;
+public class DoctorServletTest {
 
-class PatientServletTest {
-
-    private PatientServlet servlet;
-    private PatientService service;
+    private DoctorServlet servlet;
+    private DoctorService service;
     private HttpServletRequest request;
     private HttpServletResponse response;
 
     @BeforeEach
     void setUp() {
-        service = Mockito.mock(PatientService.class);
-        servlet = new PatientServlet(service); // constructor injection recommended
+        service = Mockito.mock(DoctorService.class);
+        servlet = new DoctorServlet(service); // constructor injection recommended to inject mock service
 
         request = Mockito.mock(HttpServletRequest.class);
         response = Mockito.mock(HttpServletResponse.class);
     }
-
     @Test
-    void doPost_shouldReturnCreatedStatus() throws Exception {
+    void addDoctorMethodDoPostTest() throws Exception {
 
-        String json = "{ \"patientName\": \"Ravi\" }";
-
+        String json = "{ \"doctorName\": \"divya\"}";
         BufferedReader reader = new BufferedReader(new StringReader(json));
 
         StringWriter stringWriter = new StringWriter();
@@ -49,6 +46,6 @@ class PatientServletTest {
         servlet.doPost(request, response);
 
         Mockito.verify(response).setStatus(HttpServletResponse.SC_CREATED);
-        Mockito.verify(service).addPatient(Mockito.any(Patient.class));
+        Mockito.verify(service).addDoctor(Mockito.any(Doctor.class));
     }
 }
