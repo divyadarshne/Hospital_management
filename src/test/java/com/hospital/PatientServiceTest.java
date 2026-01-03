@@ -1,6 +1,8 @@
 package com.hospital;
 
 import com.hospital.dao.PatientDao;
+import com.hospital.model.Appointment;
+import com.hospital.model.Patient;
 import com.hospital.model.Patient;
 import com.hospital.service.PatientService;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,14 +22,12 @@ public class PatientServiceTest {
 
     @BeforeEach
     void setUp() {
-
         patientDao = Mockito.mock(PatientDao.class);
-
         service = new PatientService(patientDao);
     }
 
     @Test
-    void addPatient_shouldFail_whenNameIsNull() {
+    void addPatientFail() {
 
         Patient patient = new Patient();
         patient.setPatientName(null);
@@ -38,13 +38,12 @@ public class PatientServiceTest {
         } catch (Exception e) {
             exception = e;
         }
-
         assertNotNull(exception);
         assertEquals("Patient name is required", exception.getMessage());
     }
 
     @Test
-    void addPatient_shouldCallDao_whenValidPatient() throws Exception {
+    void addPatientTest() throws Exception {
 
         Patient patient = new Patient();
         patient.setPatientName("Ravi");
@@ -55,7 +54,7 @@ public class PatientServiceTest {
     }
 
     @Test
-    void getAllPatients_shouldReturnListFromDao() {
+    void getAllPatientsTest() {
 
         List<Patient> mockList = new ArrayList<>();
         Mockito.when(patientDao.getAllPatients()).thenReturn(mockList);
@@ -68,18 +67,29 @@ public class PatientServiceTest {
 
 
     @Test
-    void getPatientById_shouldReturnPatient() {
+    void getPatientById() {
 
         Patient mockPatient = new Patient();
         mockPatient.setPatientId(1);
 
         Mockito.when(patientDao.getPatientById(1)).thenReturn(mockPatient);
-
         Patient result = service.getPatientById(1);
 
         assertNotNull(result);
         assertEquals(1, result.getPatientId());
     }
+
+    @Test
+    void updatePatientTest() {
+        Patient patient = new Patient();
+
+        Mockito.when(patientDao.updatePatient(patient)).thenReturn(patient);
+
+        Patient result = service.updatePatient(patient);
+        assertNotNull(result);
+
+    }
+
 }
 
 

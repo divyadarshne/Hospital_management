@@ -10,11 +10,18 @@ import java.util.List;
 
 public class AppointmentService {
 
-    private final AppointmentDao appointmentDao =new AppointmentDao();
+    private final AppointmentDao appointmentDao ;
 
     private static final Logger APPOINTMENTSERVICELOGS = LoggerFactory.getLogger(AppointmentService.class);
 
 
+    public AppointmentService() {       // creating constructor without arguments for other services
+        this.appointmentDao = new AppointmentDao();
+    }
+
+    public AppointmentService(AppointmentDao dao) {   //for constructer called in tests
+        this.appointmentDao = dao;
+    }
     public void addAppointment(Appointment appointment) throws Exception {
         APPOINTMENTSERVICELOGS.info("adding appointment");
         appointmentDao.addAppointment(appointment);
@@ -43,15 +50,7 @@ public class AppointmentService {
     }
 
 
-    private AppointmentDao dao;
 
-    public AppointmentService() {       // creating constructor without arguments for other services
-       this.dao = new AppointmentDao();
-    }
-
-    public AppointmentService(AppointmentDao dao) {   //for constructer called in tests
-       this.dao = dao;
-    }
 
 }
 

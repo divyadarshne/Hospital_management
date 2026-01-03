@@ -33,7 +33,7 @@ public class PatientServlet extends HttpServlet {
     private final ObjectMapper mapper = new ObjectMapper();
     static final String RESPONSETYPE ="application/json";
 
-    @Override                   //add patients
+    @Override                  //add patients
     public void doPost(HttpServletRequest req, HttpServletResponse resp)  throws  IOException {
         try {
 
@@ -44,7 +44,6 @@ public class PatientServlet extends HttpServlet {
             while ((line = reader.readLine()) != null) {
                 jsonBuilder.append(line);
             }
-
             String json = jsonBuilder.toString();
 
             Patient patient = mapper.readValue(json, Patient.class);
@@ -63,27 +62,38 @@ public class PatientServlet extends HttpServlet {
         PATIENTSERVLETLOGS.info("PatientServlet runs successfully");
     }
 
-    @Override                 //update patient
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    //update patient
+    @Override
+    public void doPut(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException {
+            try {
 
-        Patient patient = mapper.readValue(req.getInputStream(), Patient.class);
-        patientService.updatePatient(patient);
+                BufferedReader reader = req.getReader();
+                StringBuilder jsonBuilder = new StringBuilder();
+                String line;
 
-        resp.setContentType(RESPONSETYPE);
-        try{
-            resp.setStatus(HttpServletResponse.SC_CREATED);
-            resp.getWriter().write("Patient updated successfully");
+                while ((line = reader.readLine()) != null) {
+                    jsonBuilder.append(line);
+                }
 
-        } catch (Exception e) {
-            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            resp.getWriter().write(e.getMessage());
-            PATIENTSERVLETLOGS.error(e.getMessage());
+                String json = jsonBuilder.toString();
+
+                Patient patient = mapper.readValue(json, Patient.class);
+
+
+                patientService.updatePatient(patient);
+                resp.setStatus(HttpServletResponse.SC_CREATED);
+                resp.getWriter().write("Patient updated successfully");
+
+            } catch (Exception e) {
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                resp.getWriter().write(e.getMessage());
+                PATIENTSERVLETLOGS.error(e.getMessage());
+            }
+
         }
-        PATIENTSERVLETLOGS.info("UpdatePatientServlet runs successfully");
-    }
-                     //get patient by ID
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    //get patient by ID
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int pId = Integer.parseInt(req.getParameter("patientid"));
 
         resp.setContentType(RESPONSETYPE);

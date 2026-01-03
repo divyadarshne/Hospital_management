@@ -1,6 +1,5 @@
 package com.hospital.dao;
 
-import com.hospital.exceptions.DataAccessException;
 import com.hospital.model.Patient;
 
 import com.hospital.util.DBUtil;
@@ -47,8 +46,7 @@ public class PatientDao {
 
         PATIENTDAOLOGS.info("Patient added successfully");
         ps.executeUpdate();
-        ps.close();
-        conn.close();
+
     }
     catch (SQLException e) {
         PATIENTDAOLOGS.error("Error while adding patient", e);

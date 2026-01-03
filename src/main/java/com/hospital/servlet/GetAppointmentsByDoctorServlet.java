@@ -15,7 +15,7 @@ public  class GetAppointmentsByDoctorServlet extends HttpServlet {
 
     private final AppointmentService service = new AppointmentService();
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int doctorId = Integer.parseInt(req.getParameter("doctorId"));
 
         resp.setContentType("application/json");

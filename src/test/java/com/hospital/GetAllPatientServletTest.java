@@ -8,6 +8,7 @@ import org.mockito.Mockito;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
@@ -23,7 +24,7 @@ class GetAllPatientServletTest {
     private HttpServletResponse response;
 
     @BeforeEach
-    void setup() throws Exception {
+    void setup() throws IOException {
 
         servlet = new GetAllPatientServlet();
 
@@ -37,7 +38,7 @@ class GetAllPatientServletTest {
                 .thenReturn(new PrintWriter(sw));
     }
     @Test
-    void testDoGet() throws Exception {
+    void testDoGet() throws IOException {
 
         Patient a = new Patient();
         a.setPatientId(1);

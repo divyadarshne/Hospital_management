@@ -2,7 +2,9 @@ package com.hospital;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hospital.model.Patient;
+import com.hospital.model.Patient;
 import com.hospital.service.PatientService;
+import com.hospital.servlet.AppointmentServlet;
 import com.hospital.servlet.PatientServlet;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +18,8 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 
 class PatientServletTest {
 
@@ -25,16 +29,20 @@ class PatientServletTest {
     private HttpServletResponse response;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws NoSuchFieldException, IllegalAccessException {
         service = Mockito.mock(PatientService.class);
         servlet = new PatientServlet(service); // constructor injection recommended
 
         request = Mockito.mock(HttpServletRequest.class);
         response = Mockito.mock(HttpServletResponse.class);
+
+        var field = PatientServlet.class.getDeclaredField("patientService");
+        field.setAccessible(true);
+        field.set(servlet, service);
     }
 
     @Test
-    void doPost_shouldReturnCreatedStatus() throws Exception {
+    void doPostAddPatientTest() throws Exception {
 
         String json = "{ \"patientName\": \"Ravi\" }";
 
@@ -51,4 +59,59 @@ class PatientServletTest {
         Mockito.verify(response).setStatus(HttpServletResponse.SC_CREATED);
         Mockito.verify(service).addPatient(Mockito.any(Patient.class));
     }
+
+    @Test
+        //negative testcase
+    void doPostAddPatientNegativeTest() throws Exception {
+        String json = "{ \"patientName\": }";
+
+        BufferedReader reader = new BufferedReader(new StringReader(json));
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new PrintWriter(stringWriter);
+
+        Mockito.when(request.getReader()).thenReturn(reader);
+        Mockito.when(response.getWriter()).thenReturn(writer);
+
+        servlet.doPost(request, response);
+        // Mockito.verify(service, Mockito.never()).addPatient(Mockito.any());
+        // Mockito.verify(service).addPatient(Mockito.any(Patient.class));
+        Mockito.verify(response).setStatus(HttpServletResponse.SC_BAD_REQUEST);
+
+    }
+
+    @Test
+    void doGetReturnPatient() throws Exception {
+        Patient patient = new Patient();
+        patient.setPatientName("Ravi");
+
+        Mockito.when(request.getParameter("patientid")).thenReturn("1");
+        Mockito.when(service.getPatientById(1)).thenReturn(patient);
+
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new PrintWriter(stringWriter);
+        Mockito.when(response.getWriter()).thenReturn(writer);
+
+        servlet.doGet(request, response);
+        Mockito.verify(service).getPatientById(1);
+
+    }
+
+    @Test
+    void doPutUpdatePatient() throws Exception {
+
+        String json = "{ \"patientId\": \"2\"}";
+        BufferedReader reader = new BufferedReader(new StringReader(json));
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter writer = new PrintWriter(stringWriter);
+
+        Mockito.when(request.getReader()).thenReturn(reader);
+        Mockito.when(response.getWriter()).thenReturn(writer);
+        servlet.doPut(request, response);
+
+        verify(service).updatePatient(any(Patient.class));
+        verify(response).setStatus(HttpServletResponse.SC_CREATED);
+
+    }
+
+
 }

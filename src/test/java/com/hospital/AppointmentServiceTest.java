@@ -22,6 +22,18 @@ class AppointmentServiceTest {
         serviceMock = new AppointmentService(daoMock);
 
     }
+
+    @Test
+    void addAppointmentTest() throws Exception {
+
+        Appointment appointment = new Appointment();
+        appointment.setPatientId(3);
+
+        serviceMock.addAppointment(appointment);
+        Mockito.verify(daoMock).addAppointment(appointment);
+    }
+
+    
     @Test
     void testGetAllAppointments() {
 
@@ -39,4 +51,24 @@ class AppointmentServiceTest {
 
         assertEquals(1, serviceMock.getAppointmentsByDoctor(2).size());
     }
+
+    @Test
+    void updateAppointmentTest() {
+        Appointment appointment = new Appointment();
+
+        Mockito.when(daoMock.updateAppointment(appointment)).thenReturn(appointment);
+
+        Appointment result = serviceMock.updateAppointment(appointment);
+        assertNotNull(result);
+
+    }
+
+    @Test
+    void deleteAppointment_shouldDelete() {
+        serviceMock.deleteAppointment(1);
+        Mockito.verify(daoMock).deleteAppointment(1);
+
+    }
+
+
 }

@@ -7,6 +7,7 @@ import com.hospital.service.AppointmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.servlet.Servlet;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,14 +19,20 @@ import java.io.Serial;
 
 @WebServlet("/addAppointment")
 public class AppointmentServlet  extends HttpServlet{
-    private static final Logger appointmentLogs = LoggerFactory.getLogger(AppointmentServlet.class);
+    private static final Logger APPOINTMENTLOGS = LoggerFactory.getLogger(AppointmentServlet.class);
 
     private static final long serialVersionUID  = 1;
-
-    private final AppointmentService appointmentService = new AppointmentService();
+    private final AppointmentService appointmentService;
     static final ObjectMapper mapper = new ObjectMapper();
 
     static final String RESPONSETYPE ="application/json";
+
+    public AppointmentServlet(){
+        this.appointmentService = new AppointmentService();
+    }
+    public AppointmentServlet(AppointmentService service) {
+        this.appointmentService = service;
+    }
 
     @Override    // add appointment
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -53,32 +60,42 @@ public class AppointmentServlet  extends HttpServlet{
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write(e.getMessage());
-            appointmentLogs.error(" Error on request ", e);
+            APPOINTMENTLOGS.error(" Error on request ", e);
         }
-        appointmentLogs.info("Appointment is fixed");
+        APPOINTMENTLOGS.info("Appointment is fixed");
     }
        //update appointment
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+    public void doPut(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         try{
-            Appointment appointment = mapper.readValue(req.getInputStream(), Appointment.class);
 
+            BufferedReader reader = req.getReader();
+            StringBuilder jsonBuilder = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+
+            String json = jsonBuilder.toString();
+
+            Appointment appointment = mapper.readValue(json, Appointment.class);
             appointmentService.updateAppointment(appointment);
-
-            resp.setContentType(RESPONSETYPE);
+          
             resp.setStatus(HttpServletResponse.SC_CREATED);
-            resp.getWriter().write("Successfully updated the environment");
+            resp.getWriter().write("Successfully updated the appointment");
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write("Appointment update failed");
             resp.getWriter().write(e.getMessage());
+            APPOINTMENTLOGS.error(e.getMessage());
+
 
         }
     }
-
           //DeleteAppointmentbyId
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+    public void doDelete(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         try {
             int appointmentId = Integer.parseInt(req.getParameter("appointmentId"));

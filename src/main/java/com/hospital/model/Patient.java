@@ -21,8 +21,6 @@ public class Patient {
         this.phoneNumber = phoneNumber;
     }
 
-
-
     public int getPatientId() {
         return patientId;
     }

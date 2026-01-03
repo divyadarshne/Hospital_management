@@ -3,8 +3,12 @@ package com.hospital.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hospital.model.Doctor;
 
+import com.hospital.model.Doctor;
 import com.hospital.service.DoctorService;
 import com.hospital.service.DoctorService;
+import com.hospital.service.DoctorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,10 +19,9 @@ import java.io.IOException;
 
 @WebServlet("/doctors")
 public class DoctorServlet extends HttpServlet {
-    private static DoctorService doctorService = new DoctorService();
-    private final ObjectMapper mapper = new ObjectMapper();
-    String responseType ="application/json";
-    private static final long serialVersionUID  = 2;
+    private static final Logger DOCTORSERVLETLOGS = LoggerFactory.getLogger(DoctorServlet.class);
+    private final DoctorService doctorService;
+    private static final long serialVersionUID  = 6;
 
     public DoctorServlet() {   //default constructor for nrml build
         this.doctorService = new DoctorService();
@@ -27,12 +30,13 @@ public class DoctorServlet extends HttpServlet {
     public DoctorServlet(DoctorService doctorService) {   //for testing we need argument constructor
         this.doctorService = doctorService;
     }
-
+    private final ObjectMapper mapper = new ObjectMapper();
+    static final String RESPONSETYPE ="application/json";
+   
     //Add Doctor
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws  IOException {
-        try{
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)  throws  IOException {
+        try {
 
             BufferedReader reader = req.getReader();
             StringBuilder jsonBuilder = new StringBuilder();
@@ -41,27 +45,33 @@ public class DoctorServlet extends HttpServlet {
             while ((line = reader.readLine()) != null) {
                 jsonBuilder.append(line);
             }
-
             String json = jsonBuilder.toString();
 
-            Doctor doc = mapper.readValue(json, Doctor.class);
-            doctorService.addDoctor(doc);
+            Doctor doctor = mapper.readValue(json, Doctor.class);
+            doctorService.addDoctor(doctor);
 
             resp.setStatus(HttpServletResponse.SC_CREATED);
             resp.getWriter().write("Doctor added successfully");
+            DOCTORSERVLETLOGS.info("Doctor added successfully");
+
 
         } catch (Exception e) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             resp.getWriter().write(e.getMessage());
+            DOCTORSERVLETLOGS.error(e.getMessage());
         }
+        DOCTORSERVLETLOGS.info("DoctorServlet runs successfully");
     }
 
   //get doctor by Id
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int pId = Integer.parseInt(req.getParameter("doctorid"));
 
-        resp.setContentType(responseType);
-        new ObjectMapper().writeValue(resp.getWriter(), doctorService.getDoctorById(id));
+        resp.setContentType(RESPONSETYPE);
+        new ObjectMapper().writeValue(resp.getWriter(), doctorService.getDoctorById(pId));
+        DOCTORSERVLETLOGS.info("Fetched doctor {}", pId);
+
     }
 
 }
