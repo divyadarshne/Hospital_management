@@ -13,8 +13,8 @@ import java.io.IOException;
 public class GetAllAppointmentServlet extends HttpServlet {
     private static final long serialVersionUID  = 3;
 
-    AppointmentService services = new AppointmentService();
-    ObjectMapper mapper = new ObjectMapper();   // to map object into json
+    static  AppointmentService services = new AppointmentService();
+    static ObjectMapper mapper = new ObjectMapper();   // to map object into json
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("application/json");
