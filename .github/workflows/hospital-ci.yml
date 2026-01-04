@@ -2,10 +2,10 @@ name: Java CI with Maven 1st CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "master","addfeature" ]
   pull_request:
     branches: [ "main"]
-
+    
 jobs:
   build:
     runs-on: ubuntu-latest
