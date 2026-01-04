@@ -1,4 +1,5 @@
 /target
 .idea
 .mvn
-
+logs/
+catalina.base_IS_UNDEFINED/
