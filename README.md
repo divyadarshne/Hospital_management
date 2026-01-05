@@ -24,4 +24,4 @@ Post
 /appointments/addAppointment
 ---
 GET
-/appointments
+- appointments
