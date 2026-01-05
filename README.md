@@ -22,3 +22,6 @@ Post
 /patients/addpatient  
 /doctors/addDoctors   
 /appointments/addAppointment
+---
+GET
+/appointments
