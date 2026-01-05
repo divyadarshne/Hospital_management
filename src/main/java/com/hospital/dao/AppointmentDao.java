@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class AppointmentDao {
     }
 
     public Appointment updateAppointment(Appointment appointment) {
-        String sql = "UPDATE appointment SET patient_id=?, doctor_id=?, appointment_date=?, appointment_time=?, status=? WHERE appointment_id=?";
+        String sql = "UPDATE appointment SET patient_id=?, doctor_id=?, appointment_date=?, total_appointment=?, finished_appointment=? WHERE appointment_id=?";
 
         try (Connection con = DBUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -131,6 +132,20 @@ public class AppointmentDao {
         } catch (Exception e) {
             APPOINTMENTDAOLOGGER.error("Error While Deleting appointments By Appointment Id",e);
 
+        }
+
+    }
+
+    public void executeUpdateAppointmentJob () {
+        String sqlJob = " UPDATE appointment SET total_appointment = total_appointment-1 WHERE appointment_date < curdate();";
+
+        try (Connection con = DBUtil.getConnection();
+             PreparedStatement ps = con.prepareStatement(sqlJob)) {
+            APPOINTMENTDAOLOGGER.info("Deleting the expired appointment");
+            ps.executeUpdate();
+        } catch (Exception e) {
+            APPOINTMENTDAOLOGGER.error(" ERROR while deleting the date ? " +  LocalDate.now());
+            throw new RuntimeException(e);
         }
 
     }
