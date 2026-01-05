@@ -16,12 +16,25 @@
 - Jackson (JSON processing)
 - Postman (API testing)
 ---
-## API Endpoints
+## API Endpoints and its methods
 ---
 Post
-/patients/addpatient  
-/doctors/addDoctors   
-/appointments/addAppointment
+- addpatient()   /patients
+- addDoctors()   /doctors
+- addAppointment()  /addAppointment
 ---
 GET
-- appointments
+- getallpatients()                 /getallpatients
+- getpatientsbyId()                /patients
+- getappointmentsbydoctorId()     /getappointmentsbydoctor
+- getDoctorById()                 /doctors
+- getAllAppointments()            /getallappointments
+- 
+---
+PUT
+- UpdatePatients()    /patients
+- updateAppointment()   /addAppointment
+---
+Delete
+- deleteAppointment()   /addAppointment
+- 
