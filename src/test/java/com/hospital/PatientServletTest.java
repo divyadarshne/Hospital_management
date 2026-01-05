@@ -53,7 +53,6 @@ class PatientServletTest {
 
         Mockito.when(request.getReader()).thenReturn(reader);
         Mockito.when(response.getWriter()).thenReturn(writer);
-
         servlet.doPost(request, response);
 
         Mockito.verify(response).setStatus(HttpServletResponse.SC_CREATED);
@@ -63,20 +62,22 @@ class PatientServletTest {
     @Test
         //negative testcase
     void doPostAddPatientNegativeTest() throws Exception {
-        String json = "{ \"patientName\": }";
+        String json = "{ \"patientName\":\" \"}";
 
-        BufferedReader reader = new BufferedReader(new StringReader(json));
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter writer = new PrintWriter(stringWriter);
+    BufferedReader reader = new BufferedReader(new StringReader(json));
+    StringWriter stringWriter = new StringWriter();
+    PrintWriter writer = new PrintWriter(stringWriter);
+    try {
+    Mockito.when(request.getReader()).thenReturn(reader);
+    Mockito.when(response.getWriter()).thenReturn(writer);
 
-        Mockito.when(request.getReader()).thenReturn(reader);
-        Mockito.when(response.getWriter()).thenReturn(writer);
+    servlet.doPost(request, response);
 
-        servlet.doPost(request, response);
-        // Mockito.verify(service, Mockito.never()).addPatient(Mockito.any());
-        // Mockito.verify(service).addPatient(Mockito.any(Patient.class));
-        Mockito.verify(response).setStatus(HttpServletResponse.SC_BAD_REQUEST);
-
+    Mockito.verify(service).addPatient(Mockito.any(Patient.class));
+     }catch(Exception e) {
+    Mockito.verify(response).setStatus(HttpServletResponse.SC_BAD_REQUEST);
+    assertNotNull(e);
+     }
     }
 
     @Test

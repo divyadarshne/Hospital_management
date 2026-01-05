@@ -3,13 +3,14 @@ package com.hospital.scheduling;
 import org.quartz.*;
 import org.quartz.impl.StdScheduler;
 import org.quartz.impl.StdSchedulerFactory;
+import org.slf4j.Logger;
 
 import java.util.Properties;
 
 public class SchedulerMain {
 
     public static void main(String[] args) throws SchedulerException {
-
+       // Logger schedulelogger =new Logger();
         // Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
         Properties props = new Properties();
         props.setProperty("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
@@ -38,6 +39,7 @@ public class SchedulerMain {
 
         scheduler.start();
         scheduler.scheduleJob(job, trigger);
+
     }
 
 
