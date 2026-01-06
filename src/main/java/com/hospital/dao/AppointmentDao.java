@@ -137,12 +137,33 @@ public class AppointmentDao {
     }
 
     public void executeUpdateAppointmentJob () {
-        String sqlJob = " UPDATE appointment SET total_appointment = total_appointment-1 WHERE appointment_date < curdate();";
+        //String getTotal = "Select total_appointment from appointment Where appointment_date < curdate();";
+
+        String sqlJob = " UPDATE appointment SET total_appointment = total_appointment-1 WHERE appointment_date < curdate() and total_appointment > 0;";
 
         try (Connection con = DBUtil.getConnection();
+          //   PreparedStatement ps1= con.prepareStatement(getTotal);
              PreparedStatement ps = con.prepareStatement(sqlJob)) {
             APPOINTMENTDAOLOGGER.info("Deleting the expired appointment");
-            ps.executeUpdate();
+          //  ResultSet rs = ps1.executeQuery();
+          //  List<Integer> appointList= new ArrayList<>();
+           // APPOINTMENTDAOLOGGER.info(" Before list running ? " +  LocalDate.now());
+
+//            while (rs.next()) {
+//                appointList.add(rs.getInt("total_appointment"));
+//            }
+//            System.out.println(appointList);
+            APPOINTMENTDAOLOGGER.info(" running ? " +  LocalDate.now());
+//
+//            for(Integer total : appointList){
+//                if(total>0){
+//                    PreparedStatement ps = con.prepareStatement(sqlJob)
+                    ps.executeUpdate();
+                    APPOINTMENTDAOLOGGER.info(" executed at ? " +  LocalDate.now());
+
+
+
+
         } catch (Exception e) {
             APPOINTMENTDAOLOGGER.error(" ERROR while deleting the date ? " +  LocalDate.now());
             throw new RuntimeException(e);
