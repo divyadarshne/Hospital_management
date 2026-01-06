@@ -28,7 +28,6 @@ class AppointmentServiceTest {
 
         Appointment appointment = new Appointment();
         appointment.setPatientId(3);
-
         serviceMock.addAppointment(appointment);
         Mockito.verify(daoMock).addAppointment(appointment);
     }
@@ -39,6 +38,7 @@ class AppointmentServiceTest {
 
         Appointment a = new Appointment();
         List<Appointment> result = serviceMock.getAllAppointments();  //act calling the method should be tested
+
         // assert the acutal output with expected output checking the list is not null.
         assertNotNull(result, "The returned list should not be null");
     }

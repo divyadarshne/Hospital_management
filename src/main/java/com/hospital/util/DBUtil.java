@@ -2,7 +2,7 @@ package com.hospital.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+
 
 public class DBUtil {
     private final static String URL = "jdbc:mysql://localhost:3306/hospitalManagement";

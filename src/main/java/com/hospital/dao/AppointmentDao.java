@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class AppointmentDao {
     }
 
     public Appointment updateAppointment(Appointment appointment) {
-        String sql = "UPDATE appointment SET patient_id=?, doctor_id=?, appointment_date=?, appointment_time=?, status=? WHERE appointment_id=?";
+        String sql = "UPDATE appointment SET patient_id=?, doctor_id=?, appointment_date=?, total_appointment=?, finished_appointment=? WHERE appointment_id=?";
 
         try (Connection con = DBUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -131,6 +132,41 @@ public class AppointmentDao {
         } catch (Exception e) {
             APPOINTMENTDAOLOGGER.error("Error While Deleting appointments By Appointment Id",e);
 
+        }
+
+    }
+
+    public void executeUpdateAppointmentJob () {
+        //String getTotal = "Select total_appointment from appointment Where appointment_date < curdate();";
+
+        String sqlJob = " UPDATE appointment SET total_appointment = total_appointment-1 WHERE appointment_date < curdate() and total_appointment > 0;";
+
+        try (Connection con = DBUtil.getConnection();
+          //   PreparedStatement ps1= con.prepareStatement(getTotal);
+             PreparedStatement ps = con.prepareStatement(sqlJob)) {
+            APPOINTMENTDAOLOGGER.info("Deleting the expired appointment");
+          //  ResultSet rs = ps1.executeQuery();
+          //  List<Integer> appointList= new ArrayList<>();
+           // APPOINTMENTDAOLOGGER.info(" Before list running ? " +  LocalDate.now());
+
+//            while (rs.next()) {
+//                appointList.add(rs.getInt("total_appointment"));
+//            }
+//            System.out.println(appointList);
+            APPOINTMENTDAOLOGGER.info(" running ? " +  LocalDate.now());
+//
+//            for(Integer total : appointList){
+//                if(total>0){
+//                    PreparedStatement ps = con.prepareStatement(sqlJob)
+                    ps.executeUpdate();
+                    APPOINTMENTDAOLOGGER.info(" executed at ? " +  LocalDate.now());
+
+
+
+
+        } catch (Exception e) {
+            APPOINTMENTDAOLOGGER.error(" ERROR while deleting the date ? " +  LocalDate.now());
+            throw new RuntimeException(e);
         }
 
     }
