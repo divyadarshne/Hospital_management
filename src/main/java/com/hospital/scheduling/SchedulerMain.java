@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Properties;
 
@@ -18,11 +21,10 @@ public class SchedulerMain  implements ServletContextListener {
         // Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
         AppointmentDao dao = new AppointmentDao();
         dao.executeUpdateAppointmentJob();
-        Properties props = new Properties();
-        props.setProperty("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
-        props.setProperty("org.quartz.threadPool.threadCount", "3");
-        props.setProperty("org.quartz.threadPool.threadPriority", "5");
         try {
+        Properties props = new Properties();
+        props.load(new FileInputStream("C:\\Users\\blues\\inteliJ_workspace\\appointments\\src\\main\\resources\\Scheduler.properties"));
+
             StdSchedulerFactory factory = new StdSchedulerFactory(props);
             Scheduler scheduler = factory.getScheduler();
 
@@ -39,7 +41,7 @@ public class SchedulerMain  implements ServletContextListener {
 
             scheduler.scheduleJob(job, trigger);
             schedulelogger.info("completed the job" + LocalDateTime.now());
-        } catch (SchedulerException e) {
+        } catch (SchedulerException | IOException e ) {
             throw new RuntimeException(e);
         }
     }
