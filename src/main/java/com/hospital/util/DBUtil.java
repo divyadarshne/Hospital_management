@@ -1,17 +1,25 @@
 package com.hospital.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-
 
 public class DBUtil {
-    private final static String URL = "jdbc:mysql://localhost:3306/hospitalManagement";
-    private final static String USER = "root";
-    private final static String PASS = "pass123";
+    private final  String url = "jdbc:mysql://localhost:3306/hospitalManagement";
+    private final  String user = "root";
+    private final  String pass = "pass123";
 
-    public static Connection getConnection() throws Exception {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(URL, USER, PASS);
+    public String getUrl() {
+        return url;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+
 }
+
+
+

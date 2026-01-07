@@ -1,8 +1,8 @@
 package com.hospital.dao;
 
-import com.hospital.exceptions.DataAccessException;
+
 import com.hospital.model.Doctor;
-import com.hospital.util.DBUtil;
+import com.hospital.util.ConnClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +19,7 @@ public class DoctorDao {
     public void addDoctor(Doctor doctor) throws SQLException {
         String insertPatient = "Insert into doctor (doctor_name, specialization)" +
                 " values (?,?);";
-        try (Connection conn = DBUtil.getConnection();
+        try (Connection conn = ConnClass.getConnection();
              PreparedStatement ps = conn.prepareStatement(insertPatient)) {
 
             ps.setString(PARAMINDEXONE, doctor.getDoctorName());
@@ -39,7 +39,7 @@ public class DoctorDao {
         String sqlget = "SELECT * FROM doctor WHERE doctor_id = ?";
         Doctor doc = null;
 
-        try (Connection con = DBUtil.getConnection();
+        try (Connection con = ConnClass.getConnection();
              PreparedStatement ps = con.prepareStatement(sqlget)) {
 
             ps.setInt(1, id);

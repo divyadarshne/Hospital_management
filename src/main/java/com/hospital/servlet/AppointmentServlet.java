@@ -7,14 +7,12 @@ import com.hospital.service.AppointmentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.Servlet;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Serial;
 
 
 @WebServlet("/addAppointment")
@@ -38,7 +36,7 @@ public class AppointmentServlet  extends HttpServlet{
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws  IOException {
 
-        BufferedReader reader = null;
+        BufferedReader reader ;
         try {
 
             reader = req.getReader();

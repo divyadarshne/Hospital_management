@@ -3,9 +3,6 @@ package com.hospital.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hospital.model.Doctor;
 
-import com.hospital.model.Doctor;
-import com.hospital.service.DoctorService;
-import com.hospital.service.DoctorService;
 import com.hospital.service.DoctorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
