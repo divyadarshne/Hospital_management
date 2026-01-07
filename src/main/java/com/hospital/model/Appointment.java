@@ -11,7 +11,6 @@ public class Appointment {
     private int finishedAppointment;
 
 
-
     public int getAppointmentId() {
 
         return appointmentId;

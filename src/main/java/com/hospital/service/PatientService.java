@@ -2,12 +2,10 @@ package com.hospital.service;
 
 import com.hospital.dao.PatientDao;
 import com.hospital.model.Patient;
-import com.hospital.model.Doctor;
-import com.hospital.model.Patient;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 public class PatientService {

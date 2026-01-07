@@ -2,7 +2,7 @@ package com.hospital.dao;
 
 import com.hospital.exceptions.DataAccessException;
 import com.hospital.model.Appointment;
-import com.hospital.util.DBUtil;
+import com.hospital.util.ConnClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ public class AppointmentDao {
         String insertappointment = "INSERT INTO appointment (patient_id, doctor_id, appointment_date, total_appointment, finished_appointment) " +
                 "VALUES (?, ?, ?, ?, ?)";
 
-        try( Connection conn = DBUtil.getConnection();
+        try( Connection conn = ConnClass.getConnection();
              PreparedStatement ps = conn.prepareStatement(insertappointment)){
         ps.setInt(PATIENTS_ID , appointment.getPatientId());
         ps.setInt(DOCTORS_ID, appointment.getDoctorId());
@@ -51,7 +51,7 @@ public class AppointmentDao {
         List<Appointment> list = new ArrayList<>();
         String sql = "SELECT * FROM appointment";
 
-        try (Connection con = DBUtil.getConnection();
+        try (Connection con = ConnClass.getConnection();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -76,7 +76,7 @@ public class AppointmentDao {
         List<Appointment> list = new ArrayList<>();
         String sql = "SELECT * FROM appointment WHERE doctor_id = ?";
 
-        try (Connection con = DBUtil.getConnection();
+        try (Connection con = ConnClass.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, doctorId);
@@ -102,7 +102,7 @@ public class AppointmentDao {
     public Appointment updateAppointment(Appointment appointment) {
         String sql = "UPDATE appointment SET patient_id=?, doctor_id=?, appointment_date=?, total_appointment=?, finished_appointment=? WHERE appointment_id=?";
 
-        try (Connection con = DBUtil.getConnection();
+        try (Connection con = ConnClass.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(PATIENTS_ID, appointment.getPatientId());
@@ -123,7 +123,7 @@ public class AppointmentDao {
     public void deleteAppointment(int appointmentId) {
         String sql = "DELETE FROM appointment WHERE appointment_id=?";
 
-        try (Connection con = DBUtil.getConnection();
+        try (Connection con =ConnClass.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, appointmentId);
@@ -137,35 +137,18 @@ public class AppointmentDao {
     }
 
     public void executeUpdateAppointmentJob () {
-        //String getTotal = "Select total_appointment from appointment Where appointment_date < curdate();";
 
         String sqlJob = " UPDATE appointment SET total_appointment = total_appointment-1 WHERE appointment_date < curdate() and total_appointment > 0;";
 
-        try (Connection con = DBUtil.getConnection();
-          //   PreparedStatement ps1= con.prepareStatement(getTotal);
+        try (Connection con = ConnClass.getConnection();
              PreparedStatement ps = con.prepareStatement(sqlJob)) {
             APPOINTMENTDAOLOGGER.info("Deleting the expired appointment");
-          //  ResultSet rs = ps1.executeQuery();
-          //  List<Integer> appointList= new ArrayList<>();
-           // APPOINTMENTDAOLOGGER.info(" Before list running ? " +  LocalDate.now());
-
-//            while (rs.next()) {
-//                appointList.add(rs.getInt("total_appointment"));
-//            }
-//            System.out.println(appointList);
-            APPOINTMENTDAOLOGGER.info(" running ? " +  LocalDate.now());
-//
-//            for(Integer total : appointList){
-//                if(total>0){
-//                    PreparedStatement ps = con.prepareStatement(sqlJob)
+            APPOINTMENTDAOLOGGER.info(" running {} " ,  LocalDate.now());
                     ps.executeUpdate();
-                    APPOINTMENTDAOLOGGER.info(" executed at ? " +  LocalDate.now());
-
-
-
+                    APPOINTMENTDAOLOGGER.info(" executed at {} " ,  LocalDate.now());
 
         } catch (Exception e) {
-            APPOINTMENTDAOLOGGER.error(" ERROR while deleting the date ? " +  LocalDate.now());
+            APPOINTMENTDAOLOGGER.error(" ERROR while deleting the date {} " ,  LocalDate.now());
             throw new RuntimeException(e);
         }
 
