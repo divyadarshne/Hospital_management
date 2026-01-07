@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-@WebServlet("/doctors")
+
 public class DoctorServlet extends HttpServlet {
     private static final Logger DOCTORSERVLETLOGS = LoggerFactory.getLogger(DoctorServlet.class);
     private final DoctorService doctorService;

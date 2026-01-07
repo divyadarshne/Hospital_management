@@ -15,8 +15,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 
-
-@WebServlet("/patients")
 public class PatientServlet extends HttpServlet {
     private static final Logger PATIENTSERVLETLOGS = LoggerFactory.getLogger(PatientServlet.class);
     private final PatientService patientService;

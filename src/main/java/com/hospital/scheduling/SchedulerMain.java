@@ -34,7 +34,7 @@ public class SchedulerMain  implements ServletContextListener {
 
             Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("appointmentDateTrigger", "group1")
-                    .withSchedule(CronScheduleBuilder.cronSchedule("0 08 10  * * ?")).build();
+                    .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?")).build();
 
             scheduler.start();
             schedulelogger.info("Started the task {}",  LocalDateTime.now());
