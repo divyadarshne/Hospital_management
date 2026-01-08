@@ -20,26 +20,33 @@ public class ConnClass implements ServletContextListener {
 
     private static HikariDataSource DATASOURCE;
     HikariConfig hconfig = new HikariConfig();
+
     Logger logs = LoggerFactory.getLogger(ConnClass.class);
+@Override
+    public void contextInitialized(ServletContextEvent servletContextEvent) {
+    try (FileInputStream fis = new FileInputStream("Scheduler.properties")) {
+        Properties dbprops = new Properties();
+        dbprops.load(fis);
 
-    public void ContextInitializer(ServletContextEvent servletContextEvent) throws ClassNotFoundException {
-        try (FileInputStream fis = new FileInputStream("C:\\Users\\blues\\inteliJ_workspace\\appointments\\src\\main\\resources\\Scheduler.properties")) {
-            Properties dbprops = new Properties();
-            dbprops.load(fis);
+        hconfig.setDriverClassName(dbprops.getProperty("driver"));
+        hconfig.setJdbcUrl(dbprops.getProperty("url"));
+        hconfig.setUsername(dbprops.getProperty("username"));
+        hconfig.setPassword(dbprops.getProperty("password"));
+        hconfig.setMaximumPoolSize(Integer.parseInt(dbprops.getProperty("Hikari.maximumPool")));
 
-            hconfig.setDriverClassName(dbprops.getProperty("driver"));
-            hconfig.setJdbcUrl(dbprops.getProperty("url"));
-            hconfig.setUsername(dbprops.getProperty("username"));
-            hconfig.setPassword(dbprops.getProperty("password"));
-            hconfig.setMaximumPoolSize(Integer.parseInt(dbprops.getProperty("Hikari.maximumPool")));
+        logs.info("HikariCP initialized successfully");
 
-            logs.info("HicaryCP configured ");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        DATASOURCE = new HikariDataSource(hconfig);
+    } catch (Exception e) {
+        logs.error("Failed to initialize datasource", e);
     }
-    public static Connection getConnection () throws Exception {
+    DATASOURCE = new HikariDataSource(hconfig);
+    servletContextEvent.getServletContext().setAttribute("dataSource", DATASOURCE);
+}
+    public static Connection getConnection() throws Exception {
+        if (DATASOURCE == null) {
+            throw new IllegalStateException("Datasource not initialized");
+        }
         return DATASOURCE.getConnection();
     }
+
 }

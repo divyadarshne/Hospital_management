@@ -4,31 +4,28 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-  <display-name>Appointments</display-name>
 
     <servlet>
         <servlet-name>PatientServlet</servlet-name>
-        <servlet-class>com/hospital/servlet/PatientServlet</servlet-class>
+        <servlet-class>com.hospital.servlet.PatientServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>PatientServlet</servlet-name>
         <url-pattern>/patients</url-pattern>
     </servlet-mapping>
 
-    <servlet>
+   <!-- <servlet>
         <servlet-name>DoctorServlet</servlet-name>
-        <servlet-class>com/hospital/servlet/DoctorServlet</servlet-class>
+        <servlet-class>com.hospital.servlet.DoctorServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>DoctorServlet</servlet-name>
         <url-pattern>/doctor</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
     <servlet>
         <servlet-name>AppointmentServlet</servlet-name>
-        <servlet-class>com/hospital/servlet/AppointmentServlet</servlet-class>
+        <servlet-class>com.hospital.servlet.AppointmentServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -38,7 +35,7 @@
 
     <servlet>
         <servlet-name>GetAppointmentsByDoctorServlet</servlet-name>
-        <servlet-class>com/hospital/servlet/GetAppointmentsByDoctorServlet</servlet-class>
+        <servlet-class>com.hospital.servlet.GetAppointmentsByDoctorServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -48,7 +45,7 @@
 
     <servlet>
         <servlet-name>GetAllAppointmentServlet</servlet-name>
-        <servlet-class>com/hospital/servlet/GetAllAppointmentServlet</servlet-class>
+        <servlet-class>com.hospital.servlet.GetAllAppointmentServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -58,13 +55,17 @@
 
     <servlet>
         <servlet-name>GetAllPatientServlet</servlet-name>
-        <servlet-class>com/hospital/servlet/GetAllPatientServlet</servlet-class>
+        <servlet-class>com.hospital.servlet.GetAllPatientServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>GetAllPatientServlet</servlet-name>
         <url-pattern>/getallpatients</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>com.hospital.util.ConnClass</listener-class>
+    </listener>
 
 
 </web-app>
