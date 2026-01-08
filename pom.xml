@@ -30,6 +30,7 @@
       <version> 4.0.1 </version>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>com.mysql</groupId>
       <artifactId>mysql-connector-j</artifactId>
@@ -137,7 +138,7 @@
             <artifactId>liquibase-maven-plugin</artifactId>
             <version>4.25.1</version>
             <configuration>
-                <propertyFile> liquibase.properties </propertyFile>
+                <propertyFile> Application.properties </propertyFile>
             </configuration>
         </plugin>
 

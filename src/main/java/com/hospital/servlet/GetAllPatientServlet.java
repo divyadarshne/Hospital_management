@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/getallpatients")
+
 public class GetAllPatientServlet extends HttpServlet {
     private static final long serialVersionUID  = 5;
 

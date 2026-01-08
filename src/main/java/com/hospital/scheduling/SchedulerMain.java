@@ -21,7 +21,7 @@ public class SchedulerMain  implements ServletContextListener {
         Logger schedulelogger = LoggerFactory.getLogger(SchedulerMain.class);
 //        AppointmentDao dao = new AppointmentDao();
 //        dao.executeUpdateAppointmentJob();
-        try(FileInputStream fis = new FileInputStream("C:\\Users\\blues\\inteliJ_workspace\\appointments\\src\\main\\resources\\Scheduler.properties")) {
+        try(FileInputStream fis = new FileInputStream("C:\\Users\\blues\\inteliJ_workspace\\appointments\\src\\main\\resources\\Application.properties")) {
         Properties props = new Properties();
         props.load(fis);
 
@@ -34,7 +34,7 @@ public class SchedulerMain  implements ServletContextListener {
 
             Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("appointmentDateTrigger", "group1")
-                    .withSchedule(CronScheduleBuilder.cronSchedule("0 08 10  * * ?")).build();
+                    .withSchedule(CronScheduleBuilder.cronSchedule("0 0 14 * * ?")).build();
 
             scheduler.start();
             schedulelogger.info("Started the task {}",  LocalDateTime.now());

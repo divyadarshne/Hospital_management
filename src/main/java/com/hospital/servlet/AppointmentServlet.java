@@ -15,7 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 
-@WebServlet("/addAppointment")
+
 public class AppointmentServlet  extends HttpServlet{
     private static final Logger APPOINTMENTLOGS = LoggerFactory.getLogger(AppointmentServlet.class);
 
