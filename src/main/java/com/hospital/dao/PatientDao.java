@@ -3,7 +3,6 @@ package com.hospital.dao;
 import com.hospital.model.Patient;
 
 import com.hospital.util.ConnClass;
-import com.hospital.util.DBUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

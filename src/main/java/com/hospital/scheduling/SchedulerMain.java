@@ -21,7 +21,7 @@ public class SchedulerMain  implements ServletContextListener {
         Logger schedulelogger = LoggerFactory.getLogger(SchedulerMain.class);
 //        AppointmentDao dao = new AppointmentDao();
 //        dao.executeUpdateAppointmentJob();
-        try(FileInputStream fis = new FileInputStream("C:\\Users\\blues\\inteliJ_workspace\\appointments\\src\\main\\resources\\Scheduler.properties")) {
+        try(FileInputStream fis = new FileInputStream("C:\\Users\\blues\\inteliJ_workspace\\appointments\\src\\main\\resources\\Application.properties")) {
         Properties props = new Properties();
         props.load(fis);
 
