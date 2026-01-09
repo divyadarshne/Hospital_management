@@ -10,11 +10,13 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Properties;
 
+@WebListener
 public class SchedulerMain  implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {

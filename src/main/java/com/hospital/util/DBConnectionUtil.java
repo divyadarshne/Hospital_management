@@ -10,18 +10,17 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+
 import java.sql.Connection;
 import java.util.Properties;
 
 @WebListener
-public class ConnClass implements ServletContextListener {
+public class DBConnectionUtil implements ServletContextListener {
 
     private static HikariDataSource DATASOURCE;
     HikariConfig hconfig = new HikariConfig();
 
-    Logger logs = LoggerFactory.getLogger(ConnClass.class);
+    Logger logs = LoggerFactory.getLogger(DBConnectionUtil.class);
 @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
     try {
