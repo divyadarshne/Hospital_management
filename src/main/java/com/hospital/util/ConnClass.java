@@ -24,9 +24,9 @@ public class ConnClass implements ServletContextListener {
     Logger logs = LoggerFactory.getLogger(ConnClass.class);
 @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-    try (FileInputStream fis = new FileInputStream("Scheduler.properties")) {
+    try {
         Properties dbprops = new Properties();
-        dbprops.load(fis);
+        dbprops.load(getClass().getClassLoader().getResourceAsStream("Application.properties"));
 
         hconfig.setDriverClassName(dbprops.getProperty("driver"));
         hconfig.setJdbcUrl(dbprops.getProperty("url"));
