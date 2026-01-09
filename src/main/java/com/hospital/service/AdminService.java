@@ -9,5 +9,9 @@ public class AdminService {
     public void registeringAdmin(Admin admin) {
        adminRegisterDao.register(admin);
     }
+    public void loginAdmin(String username, String password) {
+        adminRegisterDao.login( username, password);
+    }
+
 
 }

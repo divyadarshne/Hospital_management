@@ -28,7 +28,7 @@ public class AdminRegisterDao {
         }
     }
 
-    public Admin login(String username, String password) throws Exception {
+    public void login(String username, String password) {
 
         try (Connection con = DBConnectionUtil.getConnection()) {
 
@@ -55,7 +55,8 @@ public class AdminRegisterDao {
             admin.setUserName(rs.getString("username"));
             admin.setEmail(rs.getString("email"));
             admin.setPassword(storedHash);
-            return admin;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

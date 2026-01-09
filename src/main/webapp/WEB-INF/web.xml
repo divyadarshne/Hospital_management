@@ -73,6 +73,16 @@
         <url-pattern>/adminregister</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.AdminLoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/adminlogin</url-pattern>
+    </servlet-mapping>
+
     <listener>
         <listener-class>com.hospital.util.DBConnectionUtil</listener-class>
     </listener>
