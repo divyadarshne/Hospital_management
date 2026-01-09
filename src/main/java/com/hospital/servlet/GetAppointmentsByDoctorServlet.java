@@ -3,7 +3,7 @@ package com.hospital.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hospital.service.AppointmentService;
 
-import javax.servlet.annotation.WebServlet;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
