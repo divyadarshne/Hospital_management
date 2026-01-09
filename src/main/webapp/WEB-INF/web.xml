@@ -63,8 +63,18 @@
         <url-pattern>/getallpatients</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminRegisterServlet</servlet-name>
+        <servlet-class>com.hospital.servlet.AdminRegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminRegisterServlet</servlet-name>
+        <url-pattern>/adminregister</url-pattern>
+    </servlet-mapping>
+
     <listener>
-        <listener-class>com.hospital.util.ConnClass</listener-class>
+        <listener-class>com.hospital.util.DBConnectionUtil</listener-class>
     </listener>
 
 

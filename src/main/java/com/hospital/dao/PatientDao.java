@@ -2,7 +2,7 @@ package com.hospital.dao;
 
 import com.hospital.model.Patient;
 
-import com.hospital.util.ConnClass;
+import com.hospital.util.DBConnectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +33,7 @@ public class PatientDao {
 
         String insertPatient = "Insert into patient (patient_name, gender, dob, blood_group, city, diagnosis, phone_number)" +
                 " values (?,?,?,?,?,?,?);";
-        try(Connection conn = ConnClass.getConnection();
+        try(Connection conn = DBConnectionUtil.getConnection();
             PreparedStatement ps = conn.prepareStatement(insertPatient)){
 
         ps.setString(PATIENT_NAME, patient.getPatientName());
@@ -59,7 +59,7 @@ public class PatientDao {
 
         String sql = "SELECT * FROM patient";
 
-        try (Connection con = ConnClass.getConnection();
+        try (Connection con = DBConnectionUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
@@ -87,7 +87,7 @@ public class PatientDao {
         String selectsql = "SELECT * FROM patient WHERE patient_id = ?";
         Patient patient=null;
 
-        try (Connection con = ConnClass.getConnection();
+        try (Connection con = DBConnectionUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(selectsql)) {
 
             ps.setInt(1, id);
@@ -114,7 +114,7 @@ public class PatientDao {
     public Patient updatePatient(Patient patient) {
         String sql = "UPDATE patient SET patient_name=?, gender=?, dob=?, blood_group=?, city=?, diagnosis=?, phone_number=? WHERE patient_id=?";
 
-        try (Connection con = ConnClass.getConnection();
+        try (Connection con = DBConnectionUtil.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setString(PATIENT_NAME, patient.getPatientName());
